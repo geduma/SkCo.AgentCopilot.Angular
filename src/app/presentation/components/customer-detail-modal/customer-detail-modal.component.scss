@@ -1,17 +1,10 @@
 /* ---- Overlay (host element as full-screen backdrop) ---- */
 :host {
   position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
+  inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(2px);
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
+  background: #090e1ade !important;
   z-index: 10000;
   animation: fade-in 0.15s ease;
 }
@@ -23,10 +16,14 @@
 
 /* ---- Modal card ---- */
 .modal {
-  background: var(--sk-surface, #fff);
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #ffffff !important;
   border: 1px solid var(--sk-border, #e1e5ee);
   border-radius: 16px;
-  width: 100%;
+  width: 90%;
   max-width: 600px;
   max-height: 90vh;
   display: flex;
