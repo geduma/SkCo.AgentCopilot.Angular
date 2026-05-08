@@ -1,0 +1,105 @@
+<div class="grid-wrapper">
+
+  @if (isLoading()) {
+    <div class="grid-state">
+      <span class="spinner"></span>
+      Cargando clientes...
+    </div>
+  } @else if (error()) {
+    <div class="grid-state grid-state--error">{{ error() }}</div>
+  } @else if (customers().length === 0) {
+    <div class="grid-state">No se encontraron clientes.</div>
+  } @else {
+
+    <div class="grid-table">
+
+      <!-- Header -->
+      <div class="grid-row grid-row--head">
+        <div class="grid-cell grid-cell--header">Cliente</div>
+        <div class="grid-cell grid-cell--header">Segmento</div>
+        <div class="grid-cell grid-cell--header">Perfil Riesgo</div>
+        <div class="grid-cell grid-cell--header grid-cell--right">Saldo Total</div>
+        <div class="grid-cell grid-cell--header grid-cell--center">Productos</div>
+        <div class="grid-cell grid-cell--header">Último Contacto</div>
+      </div>
+
+      <!-- Rows -->
+      @for (c of paginatedCustomers(); track c.idCliente) {
+        <div class="grid-row grid-row--body">
+
+          <div class="grid-cell">
+            <div class="customer-cell">
+              <div class="customer-avatar">{{ initials(c.cliente) }}</div>
+              <div>
+                <div class="text-strong">{{ c.cliente }}</div>
+                <div class="text-muted">ID: {{ c.idCliente }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-cell">
+            <span [class]="c.segmento | segmentoClass">{{ c.segmento }}</span>
+          </div>
+
+          <div class="grid-cell">
+            <span [class]="perfilClass(c.perfilRiesgo)">{{ c.perfilRiesgo }}</span>
+          </div>
+
+          <div class="grid-cell grid-cell--right text-strong">
+            ${{ c.saldoTotal | number:'1.0-0' }}
+          </div>
+
+          <div class="grid-cell grid-cell--center">
+            {{ c.productosActivos }} Activos
+          </div>
+
+          <div class="grid-cell">
+            <div class="text-strong">{{ c.ultimoContacto | date:'dd MMM yyyy' }}</div>
+            <span [class]="diasClass(c.diasSinContacto)">hace {{ c.diasSinContacto }} días</span>
+          </div>
+
+        </div>
+      }
+
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+      <span class="pagination__info">{{ rangeInfo() }}</span>
+
+      <div class="pagination__controls">
+        <button class="page-btn" (click)="prevPage()" [disabled]="currentPage() === 1">
+          &#8592;
+        </button>
+
+        @if (pageNumbers()[0] > 1) {
+          <button class="page-btn" (click)="goToPage(1)">1</button>
+          @if (pageNumbers()[0] > 2) {
+            <span class="pagination__dots">…</span>
+          }
+        }
+
+        @for (p of pageNumbers(); track p) {
+          <button
+            class="page-btn"
+            [class.page-btn--active]="p === currentPage()"
+            (click)="goToPage(p)">
+            {{ p }}
+          </button>
+        }
+
+        @if (pageNumbers()[pageNumbers().length - 1] < totalPages()) {
+          @if (pageNumbers()[pageNumbers().length - 1] < totalPages() - 1) {
+            <span class="pagination__dots">…</span>
+          }
+          <button class="page-btn" (click)="goToPage(totalPages())">{{ totalPages() }}</button>
+        }
+
+        <button class="page-btn" (click)="nextPage()" [disabled]="currentPage() === totalPages()">
+          &#8594;
+        </button>
+      </div>
+    </div>
+
+  }
+</div>

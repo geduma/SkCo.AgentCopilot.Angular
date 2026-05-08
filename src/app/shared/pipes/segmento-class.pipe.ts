@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SegmentoCliente } from '../../domain/clientes/models/cliente.model';
+import { SegmentoCliente } from '../../core/models/cliente.model';
 
 @Pipe({ name: 'segmentoClass', standalone: true })
 export class SegmentoClassPipe implements PipeTransform {

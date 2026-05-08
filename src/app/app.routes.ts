@@ -1,20 +1,20 @@
-import { Routes } from '@angular/router';
-import { ShellComponent } from './presentation/layout/shell.component';
+import { Routes } from '@angular/router'
+import { HomeComponent } from './presentation/layout/home/home.component'
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
-    path: '',
-    component: ShellComponent,
+    path: 'home',
+    component: HomeComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'clientes' },
+      { path: '', redirectTo: 'customers', pathMatch: 'full' },
       {
-        path: 'clientes',
-        loadChildren: () =>
-          import('./presentation/features/clientes/clientes.routes').then(
-            (m) => m.CLIENTES_ROUTES,
-          ),
+        path: 'customers',
+        loadComponent: () =>
+          import('./presentation/components/pages/customer-page.component')
+            .then(m => m.CustomerPageComponent),
       },
     ],
   },
-  { path: '**', redirectTo: 'clientes' },
-];
+  { path: '**', redirectTo: 'home' },
+]

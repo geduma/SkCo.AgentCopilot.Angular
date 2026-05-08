@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { EstadoGestion } from '../../domain/clientes/models/cliente.model';
+import { EstadoGestion } from '../../core/models/cliente.model';
 
 @Pipe({ name: 'estadoClass', standalone: true })
 export class EstadoClassPipe implements PipeTransform {

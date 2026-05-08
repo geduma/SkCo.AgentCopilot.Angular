@@ -1,0 +1,175 @@
+[
+  {
+    "productoId": "FND001",
+    "nombreProducto": "Fondo Balanceado Plus",
+    "tipoProducto": "Fondo de Inversión",
+    "perfilRiesgoPermitido": [
+      "Moderado"
+    ],
+    "montoMinimo": 5000000,
+    "montoMaximo": 200000000,
+    "plazoMinimoDias": 180,
+    "rentabilidadEsperada": "9% EA",
+    "liquidez": "Media",
+    "objetivoComercial": "Crecimiento de capital",
+    "segmentosObjetivo": [
+      "Premium",
+      "VIP",
+      "Oportunidad"
+    ],
+    "edadMinima": 25,
+    "edadMaxima": 65,
+    "requiereAsesoria": true,
+    "prioridadComercial": "Alta",
+    "condicionesElegibilidad": {
+      "saldoMinimoCliente": 20000000,
+      "diasSinContactoMaximo": 45,
+      "productosActivosMinimos": 1,
+      "scoreComercialMinimo": 70,
+      "probabilidadInversionMinima": 60
+    },
+    "argumentosVentaIA": [
+      "Diversificación de portafolio",
+      "Equilibrio entre rentabilidad y riesgo",
+      "Ideal para clientes moderados"
+    ]
+  },
+  {
+    "productoId": "FND002",
+    "nombreProducto": "Fondo Conservador Rentafija",
+    "tipoProducto": "Fondo de Inversión",
+    "perfilRiesgoPermitido": [
+      "Conservador"
+    ],
+    "montoMinimo": 1000000,
+    "montoMaximo": 100000000,
+    "plazoMinimoDias": 90,
+    "rentabilidadEsperada": "6% EA",
+    "liquidez": "Alta",
+    "objetivoComercial": "Protección de capital",
+    "segmentosObjetivo": [
+      "Nuevo Cliente",
+      "Estable"
+    ],
+    "edadMinima": 18,
+    "edadMaxima": 75,
+    "requiereAsesoria": false,
+    "prioridadComercial": "Media",
+    "condicionesElegibilidad": {
+      "saldoMinimoCliente": 5000000,
+      "diasSinContactoMaximo": 60,
+      "productosActivosMinimos": 0,
+      "scoreComercialMinimo": 40,
+      "probabilidadInversionMinima": 35
+    },
+    "argumentosVentaIA": [
+      "Baja volatilidad",
+      "Liquidez rápida",
+      "Protección del capital invertido"
+    ]
+  },
+  {
+    "productoId": "FND003",
+    "nombreProducto": "Fondo Crecimiento Global",
+    "tipoProducto": "Fondo de Inversión",
+    "perfilRiesgoPermitido": [
+      "Agresivo"
+    ],
+    "montoMinimo": 10000000,
+    "montoMaximo": 500000000,
+    "plazoMinimoDias": 365,
+    "rentabilidadEsperada": "14% EA",
+    "liquidez": "Baja",
+    "objetivoComercial": "Alta valorización",
+    "segmentosObjetivo": [
+      "VIP",
+      "Premium"
+    ],
+    "edadMinima": 25,
+    "edadMaxima": 60,
+    "requiereAsesoria": true,
+    "prioridadComercial": "Alta",
+    "condicionesElegibilidad": {
+      "saldoMinimoCliente": 50000000,
+      "diasSinContactoMaximo": 30,
+      "productosActivosMinimos": 2,
+      "scoreComercialMinimo": 80,
+      "probabilidadInversionMinima": 75
+    },
+    "argumentosVentaIA": [
+      "Mayor potencial de valorización",
+      "Exposición internacional",
+      "Ideal para perfiles agresivos"
+    ]
+  },
+  {
+    "productoId": "CDT001",
+    "nombreProducto": "CDT Premium 360",
+    "tipoProducto": "CDT",
+    "perfilRiesgoPermitido": [
+      "Conservador",
+      "Moderado"
+    ],
+    "montoMinimo": 3000000,
+    "montoMaximo": 300000000,
+    "plazoMinimoDias": 360,
+    "rentabilidadEsperada": "8% EA",
+    "liquidez": "Baja",
+    "objetivoComercial": "Rentabilidad estable",
+    "segmentosObjetivo": [
+      "Estable",
+      "Premium"
+    ],
+    "edadMinima": 18,
+    "edadMaxima": 75,
+    "requiereAsesoria": false,
+    "prioridadComercial": "Media",
+    "condicionesElegibilidad": {
+      "saldoMinimoCliente": 10000000,
+      "diasSinContactoMaximo": 90,
+      "productosActivosMinimos": 1,
+      "scoreComercialMinimo": 50,
+      "probabilidadInversionMinima": 45
+    },
+    "argumentosVentaIA": [
+      "Rentabilidad fija garantizada",
+      "Ideal para estabilidad financiera",
+      "Producto de bajo riesgo"
+    ]
+  },
+  {
+    "productoId": "FND004",
+    "nombreProducto": "Fondo Liquidez Inteligente",
+    "tipoProducto": "Fondo de Liquidez",
+    "perfilRiesgoPermitido": [
+      "Conservador",
+      "Moderado"
+    ],
+    "montoMinimo": 500000,
+    "montoMaximo": 50000000,
+    "plazoMinimoDias": 30,
+    "rentabilidadEsperada": "5% EA",
+    "liquidez": "Inmediata",
+    "objetivoComercial": "Disponibilidad inmediata",
+    "segmentosObjetivo": [
+      "Nuevo Cliente",
+      "Oportunidad"
+    ],
+    "edadMinima": 18,
+    "edadMaxima": 70,
+    "requiereAsesoria": false,
+    "prioridadComercial": "Alta",
+    "condicionesElegibilidad": {
+      "saldoMinimoCliente": 1000000,
+      "diasSinContactoMaximo": 120,
+      "productosActivosMinimos": 0,
+      "scoreComercialMinimo": 30,
+      "probabilidadInversionMinima": 25
+    },
+    "argumentosVentaIA": [
+      "Disponibilidad inmediata del dinero",
+      "Ideal para iniciar inversiones",
+      "Acceso flexible a recursos"
+    ]
+  }
+]

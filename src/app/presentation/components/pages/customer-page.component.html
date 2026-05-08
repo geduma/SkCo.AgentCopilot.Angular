@@ -1,0 +1,122 @@
+<div class="page">
+
+  <!-- KPI tiles -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+        </svg>
+      </div>
+      <div class="kpi__body">
+        <span class="kpi__label">Firmas Pendientes</span>
+        <span class="kpi__value">{{ firmasPendientes() }} <small>Clientes</small></span>
+      </div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <div class="kpi__body">
+        <span class="kpi__label">Liquidez Disponible</span>
+        <span class="kpi__value">{{ saldoTotalLabel() }} <small>USD</small></span>
+      </div>
+    </div>
+
+    <div class="kpi kpi--warn">
+      <div class="kpi__icon kpi__icon--warn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <div class="kpi__body">
+        <span class="kpi__label kpi__label--warn">Vencimientos (7D)</span>
+        <span class="kpi__value">{{ vencimientos7d() }} <small>Activos</small></span>
+      </div>
+    </div>
+
+    <div class="kpi">
+      <div class="kpi__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+        </svg>
+      </div>
+      <div class="kpi__body">
+        <span class="kpi__label">Prospectos VIP</span>
+        <span class="kpi__value">{{ prospectosVip() }} <small>Nuevos</small></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main layout: grid + acciones -->
+  <div class="layout">
+
+    <!-- Left: filtros + tabla -->
+    <section class="layout__main">
+      <div class="chips">
+        <button
+          class="chip"
+          [class.chip--active]="filtro() === 'alta-prioridad'"
+          (click)="setFiltro('alta-prioridad')">
+          Alta Prioridad
+        </button>
+        <button
+          class="chip"
+          [class.chip--active]="filtro() === 'vencimientos'"
+          (click)="setFiltro('vencimientos')">
+          Vencimientos Próximos
+        </button>
+        <button
+          class="chip"
+          [class.chip--active]="filtro() === 'prospectos'"
+          (click)="setFiltro('prospectos')">
+          Nuevos Prospectos
+        </button>
+        @if (filtro() !== 'all') {
+          <button class="chip chip--reset" (click)="setFiltro('all')">✕ Todos</button>
+        }
+        <span class="chips__count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+          Mostrando {{ filteredCount() }} Clientes
+        </span>
+      </div>
+
+      <app-customer-grid [filtro]="filtro()" />
+    </section>
+
+    <!-- Right: Acciones Críticas -->
+    <aside class="layout__aside">
+      <div class="actions-panel">
+        <div>
+          <h3 class="actions-panel__title">Acciones Críticas</h3>
+          <p class="actions-panel__subtitle">Tareas prioritarias del día</p>
+        </div>
+
+        @for (a of acciones; track a.titulo) {
+          <div class="action-card action-card--{{ a.tipo }}">
+            <div class="action-card__meta">
+              <span class="action-card__badge action-card__badge--{{ a.tipo }}">{{ a.tipoLabel }}</span>
+              <span class="action-card__fecha">{{ a.fechaLabel }}</span>
+            </div>
+            <p class="action-card__title">{{ a.titulo }}</p>
+            @if (a.descripcion) {
+              <p class="action-card__desc">{{ a.descripcion }}</p>
+            }
+            <div class="action-card__footer">
+              <button class="action-card__btn">{{ a.accion }}</button>
+            </div>
+          </div>
+        }
+
+        <button class="btn-add">+ Nueva Acción Manual</button>
+      </div>
+    </aside>
+
+  </div>
+</div>
