@@ -23,4 +23,5 @@ export interface Cliente {
   readonly diasSinContacto: number;
   readonly asesorAsignado: string;
   readonly estadoGestion: EstadoGestion;
+  readonly telefono: string;
 }
