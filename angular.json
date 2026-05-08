@@ -33,6 +33,11 @@
                 "glob": "**/*.json",
                 "input": "src/app/mocks",
                 "output": "mocks"
+              },
+              {
+                "glob": "**/*",
+                "input": "api",
+                "output": "api"
               }
             ],
             "styles": ["src/styles.scss"]

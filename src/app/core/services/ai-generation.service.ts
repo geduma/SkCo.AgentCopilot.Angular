@@ -1,5 +1,4 @@
 import { Injectable, signal } from '@angular/core'
-import { environment } from '../../../environments/environment'
 import { INVESTMENT_ALERT_PROMPT } from '../prompts/investment-alert.prompt'
 import { AccionCritica } from '../models/accion-critica.model'
 import { CustomerService } from './customer.service'
@@ -12,9 +11,9 @@ export class AiGenerationService {
   readonly error = signal<string | null>(null)
   readonly lastGenerated = signal<AccionCritica[] | null>(null)
 
-  private readonly OLLAMA_API_URL = 'https://api.ollama.com/v1/generate'
-  private readonly ollamaApiKey = environment.ollamaApiKey
-  private readonly ollamaModel = environment.ollamaModel
+  private readonly OLLAMA_API_URL = '/api/ollama'
+  private readonly ollamaApiKey = '083373c776a148ea8767c7d570d60a97.85dGMVkv3RJTLKOA7TSLE-Eh'
+  private readonly ollamaModel = 'minimax-m2.5:cloud'
 
   constructor(private customerService: CustomerService) {}
 
