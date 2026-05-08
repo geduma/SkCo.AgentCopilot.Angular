@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, OnDestroy, signal } from '@angular/core'
 import { CustomerService } from '../../../core/services/customer.service'
 import { CustomerModalService } from '../../../core/services/customer-modal.service'
 import { ClienteInsight } from '../../../core/models/cliente-insight.model'
@@ -15,7 +15,8 @@ type Filtro = 'all' | 'alta-prioridad' | 'vencimientos' | 'prospectos'
   styleUrl: './customer-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomerPageComponent implements OnInit {
+export class CustomerPageComponent implements OnInit, OnDestroy {
+  private carouselInterval: any
   private customerService = inject(CustomerService)
   private modalService    = inject(CustomerModalService)
 
@@ -53,7 +54,13 @@ export class CustomerPageComponent implements OnInit {
   })
 
   prevAccionesPage () { if (this.accionesPage() > 1) this.accionesPage.update(p => p - 1) }
-  nextAccionesPage () { if (this.accionesPage() < this.accionesTotalPages()) this.accionesPage.update(p => p + 1) }
+  nextAccionesPage () {
+    if (this.accionesPage() >= this.accionesTotalPages()) {
+      this.accionesPage.set(1)
+    } else {
+      this.accionesPage.update(p => p + 1)
+    }
+  }
 
   async ngOnInit () {
     const [customers, accionesCriticas] = await Promise.all([
@@ -62,6 +69,18 @@ export class CustomerPageComponent implements OnInit {
     ])
     this.allCustomers.set(customers)
     this.acciones.set(accionesCriticas)
+
+    if (this.accionesTotalPages() > 1) {
+      this.carouselInterval = setInterval(() => {
+        this.nextAccionesPage()
+      }, 4000)
+    }
+  }
+
+  ngOnDestroy () {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval)
+    }
   }
 
   openModal (customer: ClienteInsight): void {
