@@ -1,16 +1,17 @@
 {
   "bindings": [
     {
+      "authLevel": "anonymous",
       "type": "httpTrigger",
-      "name": "req",
       "direction": "in",
+      "name": "req",
       "methods": ["post"],
       "route": "ollama"
     },
     {
       "type": "http",
-      "name": "res",
-      "direction": "out"
+      "direction": "out",
+      "name": "res"
     }
   ]
 }

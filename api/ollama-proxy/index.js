@@ -1,24 +1,34 @@
 module.exports = async function (context, req) {
-  const apiKey = process.env.OLLAMA_API_KEY;
-  
-  context.log('Proxy request to Ollama');
+  context.log('Ollama proxy called');
 
-  const response = await fetch('https://api.ollama.com/v1/generate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    },
-    body: JSON.stringify(req.body)
-  });
+  const apiKey = '083373c776a148ea8767c7d570d60a97.85dGMVkv3RJTLKOA7TSLE-Eh';
+  const ollamaUrl = 'https://api.ollama.com/v1/generate';
 
-  const data = await response.text();
+  try {
+    const response = await fetch(ollamaUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify(req.body)
+    });
 
-  context.res = {
-    status: response.status,
-    body: data,
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
+    const data = await response.text();
+
+    context.res = {
+      status: response.status,
+      body: data,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    };
+  } catch (err) {
+    context.log.error('Error:', err.message);
+    context.res = {
+      status: 500,
+      body: JSON.stringify({ error: err.message })
+    };
+  }
 };
