@@ -38,34 +38,52 @@ export class CustomerPageComponent implements OnInit {
     }
   })
 
-  firmasPendientes = computed(() => this.allCustomers().filter(c => c.estadoGestion === 'Pendiente').length)
-  saldoTotalLabel  = computed(() => {
+  contactosPrioritarios = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 30).length)
+  aumGestionLabel       = computed(() => {
     const total = this.allCustomers().reduce((s, c) => s + c.saldoTotal, 0)
     return `$${(total / 1_000_000).toFixed(1)}M`
   })
-  vencimientos7d   = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
-  prospectosVip    = computed(() => this.allCustomers().filter(c => c.segmento === 'VIP' || c.segmento === 'Premium').length)
+  alertasGestion        = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
+  potencialCrossSell    = computed(() => this.allCustomers().filter(c => (c.segmento === 'VIP' || c.segmento === 'Premium') && c.productosActivos <= 3).length)
+
+  readonly accionesPageSize = 3
+  accionesPage = signal(1)
 
   readonly acciones: AccionCritica[] = [
     {
       tipo: 'critico', tipoLabel: 'CRÍTICO', fechaLabel: 'Vence hoy',
-      titulo: 'Propuesta - Grupo Ortiz',
-      descripcion: 'Documento visualizado hace 2 horas.',
-      accion: 'Contactar',
+      titulo: 'Renovación vencida – Felipe Castro',
+      descripcion: 'Portafolio VIP sin contacto hace 37 días. AUM: $120M. IA detecta riesgo de fuga.',
+      accion: 'Contactar ahora',
     },
     {
-      tipo: 'urgente', tipoLabel: 'URGENTE', fechaLabel: 'Mañana',
-      titulo: 'Follow-up: Elena Martos',
-      descripcion: 'Alta probabilidad de venta cruzada.',
-      accion: 'Ver Perfil 360',
+      tipo: 'critico', tipoLabel: 'CRÍTICO', fechaLabel: 'Mañana',
+      titulo: 'Alerta riesgo – Sofía Vargas',
+      descripcion: 'Sin contacto 62 días. Segmento Riesgo. Requiere plan de retención inmediato.',
+      accion: 'Ver perfil',
+    },
+    {
+      tipo: 'urgente', tipoLabel: 'URGENTE', fechaLabel: 'Esta semana',
+      titulo: 'Cross-sell IA – Juan Pérez',
+      descripcion: 'Perfil Moderado con capacidad de inversión. IA sugiere Fondo Skandia Renta Fija.',
+      accion: 'Ver propuesta',
     },
     {
       tipo: 'tarea', tipoLabel: 'TAREA', fechaLabel: 'Viernes',
-      titulo: 'Renovación: TechFlow SL',
-      descripcion: '',
-      accion: 'Enviar Firma',
+      titulo: 'Seguimiento – Luis Martínez',
+      descripcion: 'En plan de recuperación. Programar llamada para revisar avance.',
+      accion: 'Agendar llamada',
     },
   ]
+
+  accionesTotalPages = computed(() => Math.ceil(this.acciones.length / this.accionesPageSize))
+  accionesPaginated  = computed(() => {
+    const start = (this.accionesPage() - 1) * this.accionesPageSize
+    return this.acciones.slice(start, start + this.accionesPageSize)
+  })
+
+  prevAccionesPage () { if (this.accionesPage() > 1) this.accionesPage.update(p => p - 1) }
+  nextAccionesPage () { if (this.accionesPage() < this.accionesTotalPages()) this.accionesPage.update(p => p + 1) }
 
   async ngOnInit () {
     const data = await this.customerService.getCustomers().catch(() => [] as Cliente[])

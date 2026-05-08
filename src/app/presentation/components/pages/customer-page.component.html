@@ -2,51 +2,51 @@
 
   <!-- KPI tiles -->
   <div class="kpis">
-    <div class="kpi">
-      <div class="kpi__icon">
+    <div class="kpi kpi--warn">
+      <div class="kpi__icon kpi__icon--warn">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
         </svg>
       </div>
       <div class="kpi__body">
-        <span class="kpi__label">Firmas Pendientes</span>
-        <span class="kpi__value">{{ firmasPendientes() }} <small>Clientes</small></span>
+        <span class="kpi__label kpi__label--warn">Contactos Prioritarios</span>
+        <span class="kpi__value">{{ contactosPrioritarios() }} <small>Sin contacto +30d</small></span>
       </div>
     </div>
 
     <div class="kpi">
       <div class="kpi__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
         </svg>
       </div>
       <div class="kpi__body">
-        <span class="kpi__label">Liquidez Disponible</span>
-        <span class="kpi__value">{{ saldoTotalLabel() }} <small>USD</small></span>
+        <span class="kpi__label">AUM Bajo Gestión</span>
+        <span class="kpi__value">{{ aumGestionLabel() }} <small>COP</small></span>
       </div>
     </div>
 
     <div class="kpi kpi--warn">
       <div class="kpi__icon kpi__icon--warn">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
         </svg>
       </div>
       <div class="kpi__body">
-        <span class="kpi__label kpi__label--warn">Vencimientos (7D)</span>
-        <span class="kpi__value">{{ vencimientos7d() }} <small>Activos</small></span>
+        <span class="kpi__label kpi__label--warn">Alertas de Gestión</span>
+        <span class="kpi__value">{{ alertasGestion() }} <small>Pendientes &gt;7d</small></span>
       </div>
     </div>
 
     <div class="kpi">
       <div class="kpi__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
         </svg>
       </div>
       <div class="kpi__body">
-        <span class="kpi__label">Prospectos VIP</span>
-        <span class="kpi__value">{{ prospectosVip() }} <small>Nuevos</small></span>
+        <span class="kpi__label">Potencial Cross-sell</span>
+        <span class="kpi__value">{{ potencialCrossSell() }} <small>Clientes VIP/Premium</small></span>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@
           <p class="actions-panel__subtitle">Tareas prioritarias del día</p>
         </div>
 
-        @for (a of acciones; track a.titulo) {
+        @for (a of accionesPaginated(); track a.titulo) {
           <div class="action-card action-card--{{ a.tipo }}">
             <div class="action-card__meta">
               <span class="action-card__badge action-card__badge--{{ a.tipo }}">{{ a.tipoLabel }}</span>
@@ -111,6 +111,14 @@
             <div class="action-card__footer">
               <button class="action-card__btn">{{ a.accion }}</button>
             </div>
+          </div>
+        }
+
+        @if (accionesTotalPages() > 1) {
+          <div class="acciones-pagination">
+            <button class="acciones-pagination__btn" (click)="prevAccionesPage()" [disabled]="accionesPage() === 1">&#8592;</button>
+            <span class="acciones-pagination__info">{{ accionesPage() }} / {{ accionesTotalPages() }}</span>
+            <button class="acciones-pagination__btn" (click)="nextAccionesPage()" [disabled]="accionesPage() === accionesTotalPages()">&#8594;</button>
           </div>
         }
 
