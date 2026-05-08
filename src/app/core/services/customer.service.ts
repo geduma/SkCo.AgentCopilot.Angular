@@ -19,6 +19,13 @@ export class CustomerService {
 
   async getAccionesCriticas (): Promise<AccionCritica[]> {
     if (this.accionesCache) return this.accionesCache
+
+    const localStorageData = localStorage.getItem('critical-actions-override')
+    if (localStorageData) {
+      this.accionesCache = JSON.parse(localStorageData) as AccionCritica[]
+      return this.accionesCache
+    }
+
     const response = await fetch('/mocks/critical-actions.mock.json')
     if (!response.ok) throw new Error(`Error cargando acciones: ${response.status}`)
     this.accionesCache = await response.json() as AccionCritica[]
@@ -28,6 +35,10 @@ export class CustomerService {
   clearCache (): void {
     this.insightsCache = null
     this.accionesCache = null
+  }
+
+  setAccionesCache (acciones: AccionCritica[]): void {
+    this.accionesCache = acciones
   }
 
   async getCustomerById (id: number): Promise<ClienteInsight | undefined> {
