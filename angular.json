@@ -33,6 +33,11 @@
                 "glob": "**/*.json",
                 "input": "src/app/mocks",
                 "output": "mocks"
+              },
+              {
+                "glob": "**/*",
+                "input": "api",
+                "output": "api"
               }
             ],
             "styles": ["src/styles.scss"]
@@ -69,6 +74,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "sk-co-agent-copilot:build:production"

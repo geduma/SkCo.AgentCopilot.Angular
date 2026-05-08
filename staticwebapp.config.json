@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "/api/ollama/*",
+      " permittedRoles": ["anonymous"]
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "*"
+  },
+  "proxies": {
+    "/api/ollama": {
+      "sourceUrl": "/api/ollama",
+      "targetUrl": "https://api.ollama.com/v1/generate",
+      "changeOrigin": true
+    }
+  }
+}
