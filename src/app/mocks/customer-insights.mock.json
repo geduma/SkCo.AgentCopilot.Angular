@@ -29,7 +29,9 @@
       "accionSugerida": "Presentar propuesta de Skandia Portafolio Global con análisis comparativo.",
       "resumenCliente": "Cliente VIP con portafolio moderado y alta liquidez disponible para diversificación global.",
       "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
-    }
+    },
+    "telefono": "573015551001"
+
   },
   {
     "idCliente": 105897,
@@ -60,7 +62,9 @@
       "accionSugerida": "Agendar reunión para explicar beneficios tributarios de la pensión voluntaria.",
       "resumenCliente": "Cliente Premium con portafolio sólido y oportunidad clara de cross-sell en pensión.",
       "productoRecomendado": { "productoId": "SKA-PEN-001", "nombreProducto": "Pensión Voluntaria Skandia" }
-    }
+    },
+    "telefono": "573104782345"
+
   },
   {
     "idCliente": 101254,
@@ -90,7 +94,9 @@
       "accionSugerida": "Llamada urgente de retención y presentación de plan de recuperación personalizado.",
       "resumenCliente": "Cliente en recuperación con riesgo de fuga crítico por inactividad prolongada.",
       "productoRecomendado": { "productoId": "SKA-CG-001", "nombreProducto": "Skandia Capital Garantizado" }
-    }
+    },
+    "telefono": "573209876543"
+
   },
   {
     "idCliente": 103564,
@@ -121,7 +127,9 @@
       "accionSugerida": "Enviar informe de mercados globales y propuesta de rebalanceo.",
       "resumenCliente": "Cliente en segmento oportunidad con portafolio local y apertura a diversificación.",
       "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
-    }
+    },
+    "telefono": "573158234567"
+
   },
   {
     "idCliente": 100987,
@@ -151,7 +159,9 @@
       "accionSugerida": "Compartir brochure de Plan Educativo y programar llamada informativa.",
       "resumenCliente": "Cliente estable y fiel, bajo riesgo, con oportunidad de ampliar portafolio educativo.",
       "productoRecomendado": { "productoId": "SKA-EDU-001", "nombreProducto": "Plan Educativo Skandia" }
-    }
+    },
+    "telefono": "573114567890"
+
   },
   {
     "idCliente": 106543,
@@ -181,7 +191,9 @@
       "accionSugerida": "Contacto inmediato para presentar opciones de migración a producto de menor riesgo.",
       "resumenCliente": "Cliente en segmento riesgo con máxima urgencia de intervención.",
       "productoRecomendado": { "productoId": "SKA-CG-001", "nombreProducto": "Skandia Capital Garantizado" }
-    }
+    },
+    "telefono": "573027543210"
+
   },
   {
     "idCliente": 107654,
@@ -214,7 +226,9 @@
       "accionSugerida": "Reunión de revisión de portafolio y presentación de Skandia Portafolio Global.",
       "resumenCliente": "Cliente Premium con portafolio completo y alto potencial para expansión internacional.",
       "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
-    }
+    },
+    "telefono": "573136789012"
+
   },
   {
     "idCliente": 109876,
@@ -244,7 +258,9 @@
       "accionSugerida": "Llamada de seguimiento de onboarding y presentación de fondos conservadores.",
       "resumenCliente": "Cliente nuevo con potencial de crecer en portafolio conservador durante el onboarding.",
       "productoRecomendado": { "productoId": "SKA-RF-001", "nombreProducto": "Fondo Skandia Renta Fija" }
-    }
+    },
+    "telefono": "573213456789"
+
   },
   {
     "idCliente": 108321,
@@ -278,7 +294,9 @@
       "accionSugerida": "Contacto urgente para renovación y propuesta de upgrade a clase institucional con mejor comisión.",
       "resumenCliente": "Cliente VIP de mayor valor, con riesgo de fuga crítico por inactividad y renovación vencida.",
       "productoRecomendado": { "productoId": "SKA-RVU-001", "nombreProducto": "Skandia Renta Variable USA" }
-    }
+    },
+    "telefono": "573009123456"
+
   },
   {
     "idCliente": 104789,
@@ -309,6 +327,8 @@
       "accionSugerida": "Llamada para presentar simulación de ahorro pensional y ahorro en impuestos.",
       "resumenCliente": "Cliente en oportunidad con alta probabilidad de cierre para pensión voluntaria.",
       "productoRecomendado": { "productoId": "SKA-PEN-001", "nombreProducto": "Pensión Voluntaria Skandia" }
-    }
+    },
+    "telefono": "573165432109"
+
   }
 ]

@@ -10,7 +10,8 @@
     "ultimoContacto": "2026-04-10",
     "diasSinContacto": 28,
     "asesorAsignado": "Carlos Suárez",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573015551001"
   },
   {
     "cliente": "Ana Torres",
@@ -23,7 +24,8 @@
     "ultimoContacto": "2026-04-18",
     "diasSinContacto": 20,
     "asesorAsignado": "Laura Gómez",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573104782345"
   },
   {
     "cliente": "Luis Martínez",
@@ -36,7 +38,8 @@
     "ultimoContacto": "2026-03-22",
     "diasSinContacto": 47,
     "asesorAsignado": "Carlos Suárez",
-    "estadoGestion": "En gestión"
+    "estadoGestion": "En gestión",
+    "telefono": "573209876543"
   },
   {
     "cliente": "María Gómez",
@@ -49,7 +52,8 @@
     "ultimoContacto": "2026-04-29",
     "diasSinContacto": 9,
     "asesorAsignado": "Andrés López",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573158234567"
   },
   {
     "cliente": "Carlos Ramírez",
@@ -62,7 +66,8 @@
     "ultimoContacto": "2026-05-02",
     "diasSinContacto": 6,
     "asesorAsignado": "Laura Gómez",
-    "estadoGestion": "Cerrado"
+    "estadoGestion": "Cerrado",
+    "telefono": "573114567890"
   },
   {
     "cliente": "Sofía Vargas",
@@ -75,7 +80,8 @@
     "ultimoContacto": "2026-02-28",
     "diasSinContacto": 62,
     "asesorAsignado": "Andrés López",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573027543210"
   },
   {
     "cliente": "Diego Herrera",
@@ -88,7 +94,8 @@
     "ultimoContacto": "2026-04-25",
     "diasSinContacto": 13,
     "asesorAsignado": "Carlos Suárez",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573136789012"
   },
   {
     "cliente": "Camila Rojas",
@@ -101,7 +108,8 @@
     "ultimoContacto": "2026-05-05",
     "diasSinContacto": 3,
     "asesorAsignado": "Laura Gómez",
-    "estadoGestion": "En gestión"
+    "estadoGestion": "En gestión",
+    "telefono": "573213456789"
   },
   {
     "cliente": "Felipe Castro",
@@ -114,7 +122,8 @@
     "ultimoContacto": "2026-04-01",
     "diasSinContacto": 37,
     "asesorAsignado": "Andrés López",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573009123456"
   },
   {
     "cliente": "Natalia Ruiz",
@@ -127,6 +136,7 @@
     "ultimoContacto": "2026-04-15",
     "diasSinContacto": 23,
     "asesorAsignado": "Carlos Suárez",
-    "estadoGestion": "Pendiente"
+    "estadoGestion": "Pendiente",
+    "telefono": "573165432109"
   }
 ]

@@ -86,4 +86,12 @@ export class CustomerDetailModalComponent {
     }
     return map[tipo] ?? 'pill'
   }
+
+  iniciarGestion(): void {
+    const phone = (this.customer.telefono ?? '').replace(/\D/g, '')
+    console.log('que pasooooooooooooo', this.customer)
+    if (!phone) return
+    const url = `https://api.whatsapp.com/send?phone=${phone}`
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 }
