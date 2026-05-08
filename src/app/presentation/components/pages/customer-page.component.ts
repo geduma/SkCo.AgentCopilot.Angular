@@ -40,8 +40,9 @@ export class CustomerPageComponent implements OnInit {
   })
   alertasGestion     = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
   potencialCrossSell = computed(() => this.allCustomers().filter(c => c.ia.oportunidadCrossSelling).length)
+  contratosSinFondeo = signal(3)
 
-  readonly accionesPageSize = 4
+  readonly accionesPageSize = 3
   accionesPage  = signal(1)
   acciones      = signal<AccionCritica[]>([])
 

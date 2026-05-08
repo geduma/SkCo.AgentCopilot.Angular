@@ -1,62 +1,119 @@
 [
   {
     "id": 1,
-    "tipo": "critico",
-    "tipoLabel": "CRÍTICO",
-    "fechaLabel": "Vence hoy",
-    "titulo": "Renovación vencida – Felipe Castro",
-    "descripcion": "Portafolio VIP $120M sin contacto 37 días. IA detecta riesgo de migración a competidor.",
-    "accion": "Iniciar gestión",
-    "idCliente": 108321
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Hoy",
+    "titulo": "Peso colombiano se desploma por incertidumbre política",
+    "descripcion": "El COP lidera las caídas en la región tras encuestas electorales. Riesgo de fuga de capitales al alza.",
+    "accion": "Contactar a clientes con alta exposición a pesos para sugerir dolarización parcial de portafolios."
   },
   {
     "id": 2,
-    "tipo": "critico",
-    "tipoLabel": "CRÍTICO",
-    "fechaLabel": "Mañana",
-    "titulo": "Alerta retención – Sofía Vargas",
-    "descripcion": "62 días sin contacto. Fondo en pérdida del 8%. Riesgo de rescate total inminente.",
-    "accion": "Contactar ahora",
-    "idCliente": 106543
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Hoy",
+    "titulo": "BanRep frena recortes y mantiene tasa en 11,25%",
+    "descripcion": "Decisión conservadora por inflación persistente. Las tasas de captación seguirán atractivas poco tiempo.",
+    "accion": "Recomendar cierre de CDTs o fondos de renta fija a tasa fija para asegurar los rendimientos actuales."
   },
   {
     "id": 3,
     "tipo": "urgente",
     "tipoLabel": "URGENTE",
     "fechaLabel": "Esta semana",
-    "titulo": "Cross-sell IA – Juan Pérez",
-    "descripcion": "IA sugiere Skandia Portafolio Global. Potencial $25M. Perfil y liquidez confirmados.",
-    "accion": "Preparar propuesta",
-    "idCliente": 102358
+    "titulo": "Tensión en Junta del BanRep eleva prima de riesgo",
+    "descripcion": "Diferencias públicas entre Gobierno y Gerencia afectan los TES. Volatilidad en la curva de rendimientos.",
+    "accion": "Reducir la duración promedio de las carteras de deuda local para mitigar pérdidas por volatilidad."
   },
   {
     "id": 4,
     "tipo": "urgente",
     "tipoLabel": "URGENTE",
-    "fechaLabel": "Esta semana",
-    "titulo": "Rebalanceo portafolio – Diego Herrera",
-    "descripcion": "Portafolio Premium sin exposición global. Ventana de mercado favorable para incorporar componente internacional.",
-    "accion": "Ver portafolio",
-    "idCliente": 107654
+    "fechaLabel": "Hoy",
+    "titulo": "Dólar presionado por compras del Gobierno Nacional",
+    "descripcion": "MinHacienda compra divisas para servicio de deuda, impulsando el precio al alza en el corto plazo.",
+    "accion": "Asesorar a clientes con obligaciones en moneda extranjera para ejecutar compras antes de mayores alzas."
   },
   {
     "id": 5,
-    "tipo": "tarea",
-    "tipoLabel": "TAREA",
-    "fechaLabel": "Jueves",
-    "titulo": "Propuesta pensión – Natalia Ruiz",
-    "descripcion": "Simular ahorro pensional y beneficio tributario del 30%. Potencial $10M en aportes anuales.",
-    "accion": "Simular ahorro",
-    "idCliente": 104789
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Esta semana",
+    "titulo": "Mercados en modo pausa por elecciones del 31 de mayo",
+    "descripcion": "La inversión local se detiene a la espera de claridad política. El volumen de negociación en BVC cae.",
+    "accion": "Migrar capitales hacia fondos de liquidez o 'Money Market' para mantener disponibilidad y seguridad."
   },
   {
     "id": 6,
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Hoy",
+    "titulo": "Castigo a acciones de MercadoLibre tras reporte",
+    "descripcion": "Caída en márgenes por expansión crediticia afecta la acción. El sector e-commerce regional se resiente.",
+    "accion": "Monitorear niveles de soporte para posibles entradas tácticas en clientes con perfil de crecimiento."
+  },
+  {
+    "id": 7,
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Esta semana",
+    "titulo": "Inflación básica al 5,8% limita espacio de maniobra",
+    "descripcion": "Precios de servicios no ceden. La indexación sigue siendo clave para proteger el poder adquisitivo.",
+    "accion": "Aumentar la ponderación de activos indexados a la UVR o IPC dentro de la estrategia de renta fija."
+  },
+  {
+    "id": 8,
     "tipo": "tarea",
     "tipoLabel": "TAREA",
-    "fechaLabel": "Viernes",
-    "titulo": "Seguimiento recuperación – Luis Martínez",
-    "descripcion": "Revisar avance del plan de retención. Presentar Capital Garantizado como alternativa estabilizadora.",
-    "accion": "Ver historial",
-    "idCliente": 101254
+    "fechaLabel": "Mañana",
+    "titulo": "S&P 500 alcanza nuevos máximos históricos",
+    "descripcion": "El rally tecnológico impulsado por IA no muestra agotamiento. Wall Street sigue resiliente.",
+    "accion": "Validar el rebalanceo de metas internacionales y proponer incremento en exposición a acciones de EE.UU."
+  },
+  {
+    "id": 9,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Esta semana",
+    "titulo": "Fitch monitorea impacto de reforma pensional",
+    "descripcion": "La calificadora advierte sobre la liquidez del mercado de capitales tras posibles cambios estructurales.",
+    "accion": "Informar a clientes sobre la importancia de seguros de vida y pensiones voluntarias como resguardo legal."
+  },
+  {
+    "id": 10,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Esta semana",
+    "titulo": "Confianza del consumidor en EE.UU. en mínimos",
+    "descripcion": "El sentimiento bajista podría anticipar una desaceleración del consumo global a finales de año.",
+    "accion": "Revisar y diversificar hacia sectores defensivos como salud y consumo básico en carteras globales."
+  },
+  {
+    "id": 11,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Esta semana",
+    "titulo": "Conflictos en Medio Oriente mantienen petróleo al alza",
+    "descripcion": "Brent por encima de USD 85 afecta costos logísticos pero beneficia regalías en Colombia.",
+    "accion": "Evaluar fondos que incluyan empresas del sector energía y servicios petroleros para capturar el margen."
+  },
+  {
+    "id": 12,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Mañana",
+    "titulo": "Implementación de Bre-B revoluciona pagos locales",
+    "descripcion": "El nuevo sistema de pagos inmediatos de BanRep entra en fase crítica. Impacto en banca tradicional.",
+    "accion": "Identificar oportunidades en fondos que inviertan en empresas líderes en transformación digital y Fintech."
+  },
+  {
+    "id": 13,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Esta semana",
+    "titulo": "Plan de infraestructura de Bogotá activa $6 billones",
+    "descripcion": "Proyectos viales buscan reactivar el sector construcción. Mejora perspectiva para activos reales.",
+    "accion": "Presentar opciones de inversión en Fondos de Inmobiliarios o de Infraestructura con foco en la capital."
   }
 ]

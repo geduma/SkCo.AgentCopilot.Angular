@@ -13,6 +13,5 @@ import { HeaderComponent } from '../header/header.component'
 })
 export class HomeComponent {
   constructor() {
-    console.log('HomeComponent initialized')
   }
 }
