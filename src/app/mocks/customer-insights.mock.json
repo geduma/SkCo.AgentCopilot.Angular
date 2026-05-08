@@ -1,0 +1,274 @@
+[
+  {
+    "idCliente": 102358,
+    "cliente": "Juan Pérez",
+    "asesorId": 3847,
+    "segmento": "VIP",
+    "perfilRiesgo": "Moderado",
+    "saldoTotal": 85000000,
+    "productosActivos": 3,
+    "ultimoContacto": "2026-04-10",
+    "diasSinContacto": 28,
+    "asesorAsignado": "Carlos Suárez",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RF-001", "nombre": "Fondo Skandia Renta Fija", "tipo": "Fondo", "saldo": 40000000 },
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 30000000 },
+      { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 15000000 }
+    ],
+    "ia": {
+      "scoreContacto": 72,
+      "nivelAlerta": "medio",
+      "tipoRecomendacion": "cross-sell",
+      "productoSugerido": "Skandia Portafolio Global",
+      "razonamiento": "Portafolio concentrado en renta fija local. Capacidad de inversión adicional y perfil apto para diversificación internacional.",
+      "potencialInversion": 25000000,
+      "proximaAccion": "Presentar propuesta de Skandia Portafolio Global con análisis comparativo",
+      "urgencia": "esta-semana"
+    }
+  },
+  {
+    "idCliente": 105897,
+    "cliente": "Ana Torres",
+    "asesorId": 5123,
+    "segmento": "Premium",
+    "perfilRiesgo": "Moderado",
+    "saldoTotal": 63500000,
+    "productosActivos": 2,
+    "ultimoContacto": "2026-04-18",
+    "diasSinContacto": 20,
+    "asesorAsignado": "Laura Gómez",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RF-001", "nombre": "Fondo Skandia Renta Fija", "tipo": "Fondo", "saldo": 45000000 },
+      { "id": "SKA-EDU-001", "nombre": "Plan Educativo Skandia", "tipo": "Plan", "saldo": 18500000 }
+    ],
+    "ia": {
+      "scoreContacto": 65,
+      "nivelAlerta": "medio",
+      "tipoRecomendacion": "cross-sell",
+      "productoSugerido": "Pensión Voluntaria Skandia",
+      "razonamiento": "Cliente Premium sin vehículo de ahorro pensional. Edad y perfil idóneos para iniciar contribuciones voluntarias con beneficio tributario.",
+      "potencialInversion": 15000000,
+      "proximaAccion": "Agendar reunión para explicar beneficios tributarios de la pensión voluntaria",
+      "urgencia": "esta-semana"
+    }
+  },
+  {
+    "idCliente": 101254,
+    "cliente": "Luis Martínez",
+    "asesorId": 3847,
+    "segmento": "Recuperación",
+    "perfilRiesgo": "Conservador",
+    "saldoTotal": 18000000,
+    "productosActivos": 1,
+    "ultimoContacto": "2026-03-22",
+    "diasSinContacto": 47,
+    "asesorAsignado": "Carlos Suárez",
+    "estadoGestion": "En gestión",
+    "productosDetalle": [
+      { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 18000000 }
+    ],
+    "ia": {
+      "scoreContacto": 91,
+      "nivelAlerta": "alto",
+      "tipoRecomendacion": "retencion",
+      "productoSugerido": "Skandia Capital Garantizado",
+      "razonamiento": "47 días sin contacto en segmento Recuperación. Alto riesgo de cancelación. Producto de capital garantizado puede estabilizar relación y generar confianza.",
+      "potencialInversion": 5000000,
+      "proximaAccion": "Llamada urgente de retención y presentación de plan de recuperación personalizado",
+      "urgencia": "manana"
+    }
+  },
+  {
+    "idCliente": 103564,
+    "cliente": "María Gómez",
+    "asesorId": 7291,
+    "segmento": "Oportunidad",
+    "perfilRiesgo": "Moderado",
+    "saldoTotal": 42000000,
+    "productosActivos": 2,
+    "ultimoContacto": "2026-04-29",
+    "diasSinContacto": 9,
+    "asesorAsignado": "Andrés López",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RF-001", "nombre": "Fondo Skandia Renta Fija", "tipo": "Fondo", "saldo": 25000000 },
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 17000000 }
+    ],
+    "ia": {
+      "scoreContacto": 50,
+      "nivelAlerta": "bajo",
+      "tipoRecomendacion": "rebalanceo",
+      "productoSugerido": "Skandia Portafolio Global",
+      "razonamiento": "Portafolio bien distribuido pero sin exposición internacional. Coyuntura favorable para incorporar diversificación global en porcentaje moderado.",
+      "potencialInversion": 12000000,
+      "proximaAccion": "Enviar informe de mercados globales y propuesta de rebalanceo",
+      "urgencia": "este-mes"
+    }
+  },
+  {
+    "idCliente": 100987,
+    "cliente": "Carlos Ramírez",
+    "asesorId": 5123,
+    "segmento": "Estable",
+    "perfilRiesgo": "Conservador",
+    "saldoTotal": 12500000,
+    "productosActivos": 1,
+    "ultimoContacto": "2026-05-02",
+    "diasSinContacto": 6,
+    "asesorAsignado": "Laura Gómez",
+    "estadoGestion": "Cerrado",
+    "productosDetalle": [
+      { "id": "SKA-PEN-001", "nombre": "Pensión Voluntaria Skandia", "tipo": "Pensión", "saldo": 12500000 }
+    ],
+    "ia": {
+      "scoreContacto": 30,
+      "nivelAlerta": "bajo",
+      "tipoRecomendacion": "cross-sell",
+      "productoSugerido": "Plan Educativo Skandia",
+      "razonamiento": "Cliente estable con historial de pago consistente. Perfil familiar sugiere necesidad de ahorro educativo a mediano plazo.",
+      "potencialInversion": 3000000,
+      "proximaAccion": "Compartir brochure de Plan Educativo y programar llamada informativa",
+      "urgencia": "este-mes"
+    }
+  },
+  {
+    "idCliente": 106543,
+    "cliente": "Sofía Vargas",
+    "asesorId": 7291,
+    "segmento": "Riesgo",
+    "perfilRiesgo": "Agresivo",
+    "saldoTotal": 9800000,
+    "productosActivos": 1,
+    "ultimoContacto": "2026-02-28",
+    "diasSinContacto": 62,
+    "asesorAsignado": "Andrés López",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 9800000 }
+    ],
+    "ia": {
+      "scoreContacto": 97,
+      "nivelAlerta": "critico",
+      "tipoRecomendacion": "retencion",
+      "productoSugerido": "Skandia Capital Garantizado",
+      "razonamiento": "62 días sin contacto. Único producto con pérdida acumulada del 8%. Riesgo de rescate total inminente. Intervención crítica requerida.",
+      "potencialInversion": 0,
+      "proximaAccion": "Contacto inmediato para presentar opciones de migración a producto de menor riesgo",
+      "urgencia": "hoy"
+    }
+  },
+  {
+    "idCliente": 107654,
+    "cliente": "Diego Herrera",
+    "asesorId": 3847,
+    "segmento": "Premium",
+    "perfilRiesgo": "Moderado",
+    "saldoTotal": 71200000,
+    "productosActivos": 4,
+    "ultimoContacto": "2026-04-25",
+    "diasSinContacto": 13,
+    "asesorAsignado": "Carlos Suárez",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RF-001", "nombre": "Fondo Skandia Renta Fija", "tipo": "Fondo", "saldo": 25000000 },
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 20000000 },
+      { "id": "SKA-PEN-001", "nombre": "Pensión Voluntaria Skandia", "tipo": "Pensión", "saldo": 15000000 },
+      { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 11200000 }
+    ],
+    "ia": {
+      "scoreContacto": 60,
+      "nivelAlerta": "medio",
+      "tipoRecomendacion": "cross-sell",
+      "productoSugerido": "Skandia Portafolio Global",
+      "razonamiento": "Cliente Premium con portafolio diversificado pero sin exposición internacional. Capacidad financiera y perfil idóneos para incorporar componente global.",
+      "potencialInversion": 20000000,
+      "proximaAccion": "Reunión de revisión de portafolio y presentación de Skandia Portafolio Global",
+      "urgencia": "esta-semana"
+    }
+  },
+  {
+    "idCliente": 109876,
+    "cliente": "Camila Rojas",
+    "asesorId": 5123,
+    "segmento": "Nuevo Cliente",
+    "perfilRiesgo": "Conservador",
+    "saldoTotal": 5500000,
+    "productosActivos": 1,
+    "ultimoContacto": "2026-05-05",
+    "diasSinContacto": 3,
+    "asesorAsignado": "Laura Gómez",
+    "estadoGestion": "En gestión",
+    "productosDetalle": [
+      { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 5500000 }
+    ],
+    "ia": {
+      "scoreContacto": 25,
+      "nivelAlerta": "bajo",
+      "tipoRecomendacion": "seguimiento",
+      "productoSugerido": "Fondo Skandia Renta Fija",
+      "razonamiento": "Cliente nuevo en proceso de onboarding. Primera inversión en seguro. Momento ideal para introducir fondos de bajo riesgo como complemento al seguro.",
+      "potencialInversion": 3000000,
+      "proximaAccion": "Llamada de seguimiento de onboarding y presentación de fondos conservadores",
+      "urgencia": "este-mes"
+    }
+  },
+  {
+    "idCliente": 108321,
+    "cliente": "Felipe Castro",
+    "asesorId": 7291,
+    "segmento": "VIP",
+    "perfilRiesgo": "Agresivo",
+    "saldoTotal": 120000000,
+    "productosActivos": 5,
+    "ultimoContacto": "2026-04-01",
+    "diasSinContacto": 37,
+    "asesorAsignado": "Andrés López",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RVU-001", "nombre": "Skandia Renta Variable USA", "tipo": "Fondo", "saldo": 50000000 },
+      { "id": "SKA-PG-001", "nombre": "Skandia Portafolio Global", "tipo": "Fondo", "saldo": 35000000 },
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 20000000 },
+      { "id": "SKA-PEN-001", "nombre": "Pensión Voluntaria Skandia", "tipo": "Pensión", "saldo": 10000000 },
+      { "id": "SKA-SEGP-001", "nombre": "Seguro de Vida Premium", "tipo": "Seguro", "saldo": 5000000 }
+    ],
+    "ia": {
+      "scoreContacto": 94,
+      "nivelAlerta": "critico",
+      "tipoRecomendacion": "renovacion",
+      "productoSugerido": "Skandia Renta Variable USA – Clase Institucional",
+      "razonamiento": "Mayor AUM del portafolio. 37 días sin contacto en segmento VIP con posición concentrada en USA. Ventana de renovación vencida. Riesgo de migración a competidor.",
+      "potencialInversion": 30000000,
+      "proximaAccion": "Contacto urgente para renovación y propuesta de upgrade a clase institucional con mejor comisión",
+      "urgencia": "hoy"
+    }
+  },
+  {
+    "idCliente": 104789,
+    "cliente": "Natalia Ruiz",
+    "asesorId": 3847,
+    "segmento": "Oportunidad",
+    "perfilRiesgo": "Moderado",
+    "saldoTotal": 38900000,
+    "productosActivos": 2,
+    "ultimoContacto": "2026-04-15",
+    "diasSinContacto": 23,
+    "asesorAsignado": "Carlos Suárez",
+    "estadoGestion": "Pendiente",
+    "productosDetalle": [
+      { "id": "SKA-RF-001", "nombre": "Fondo Skandia Renta Fija", "tipo": "Fondo", "saldo": 20000000 },
+      { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 18900000 }
+    ],
+    "ia": {
+      "scoreContacto": 68,
+      "nivelAlerta": "medio",
+      "tipoRecomendacion": "cross-sell",
+      "productoSugerido": "Pensión Voluntaria Skandia",
+      "razonamiento": "Cliente con potencial de ahorro no canalizado. Sin producto pensional activo. Beneficio tributario del 30% sobre aportes es argumento de cierre efectivo.",
+      "potencialInversion": 10000000,
+      "proximaAccion": "Llamada para presentar simulación de ahorro pensional y ahorro en impuestos",
+      "urgencia": "esta-semana"
+    }
+  }
+]

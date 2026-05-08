@@ -59,6 +59,12 @@
       <div class="chips">
         <button
           class="chip"
+          [class.chip--active]="filtro() === 'all'"
+          (click)="setFiltro('all')">
+          Todos
+        </button>
+        <button
+          class="chip"
           [class.chip--active]="filtro() === 'alta-prioridad'"
           (click)="setFiltro('alta-prioridad')">
           Alta Prioridad
@@ -75,19 +81,19 @@
           (click)="setFiltro('prospectos')">
           Nuevos Prospectos
         </button>
-        @if (filtro() !== 'all') {
-          <button class="chip chip--reset" (click)="setFiltro('all')">✕ Todos</button>
-        }
         <span class="chips__count">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
             <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
           </svg>
-          Mostrando {{ filteredCount() }} Clientes
+          Mostrando {{ gridRange() }}
         </span>
       </div>
 
-      <app-customer-grid [filtro]="filtro()" />
+      <app-customer-grid
+        [filtro]="filtro()"
+        (rangeChange)="gridRange.set($event)"
+        (customerSelected)="selectedCustomer.set($event)" />
     </section>
 
     <!-- Right: Acciones Críticas -->
@@ -105,12 +111,6 @@
               <span class="action-card__fecha">{{ a.fechaLabel }}</span>
             </div>
             <p class="action-card__title">{{ a.titulo }}</p>
-            @if (a.descripcion) {
-              <p class="action-card__desc">{{ a.descripcion }}</p>
-            }
-            <div class="action-card__footer">
-              <button class="action-card__btn">{{ a.accion }}</button>
-            </div>
           </div>
         }
 
@@ -128,3 +128,9 @@
 
   </div>
 </div>
+
+@if (selectedCustomer()) {
+  <app-customer-detail-modal
+    [customer]="selectedCustomer()!"
+    (close)="selectedCustomer.set(null)" />
+}

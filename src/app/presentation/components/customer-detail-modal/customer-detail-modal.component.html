@@ -1,0 +1,143 @@
+<div class="overlay" (click)="close.emit()">
+  <div class="modal" (click)="$event.stopPropagation()">
+
+    <!-- Header -->
+    <div class="modal__header">
+      <div class="modal__avatar">{{ initials(customer.cliente) }}</div>
+      <div class="modal__identity">
+        <h2 class="modal__name">{{ customer.cliente }}</h2>
+        <span class="modal__id">ID {{ customer.idCliente }} · {{ customer.asesorAsignado }}</span>
+      </div>
+      <div class="modal__badges">
+        <span [class]="customer.segmento | segmentoClass">{{ customer.segmento }}</span>
+        <span [class]="perfilClass(customer.perfilRiesgo)">{{ customer.perfilRiesgo }}</span>
+      </div>
+      <button class="modal__close" (click)="close.emit()">&#10005;</button>
+    </div>
+
+    <div class="modal__body">
+
+      <!-- Resumen de gestión -->
+      <section class="modal__section">
+        <h3 class="section-title">Resumen de Gestión</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat__label">Saldo Total</span>
+            <span class="stat__value">${{ customer.saldoTotal | number:'1.0-0' }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Productos Activos</span>
+            <span class="stat__value">{{ customer.productosActivos }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Último Contacto</span>
+            <span class="stat__value">{{ customer.ultimoContacto | date:'dd MMM yyyy' }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Días sin Contacto</span>
+            <span class="stat__value" [class.stat__value--warn]="customer.diasSinContacto >= 15"
+                                      [class.stat__value--danger]="customer.diasSinContacto >= 30">
+              {{ customer.diasSinContacto }} días
+            </span>
+          </div>
+          <div class="stat">
+            <span class="stat__label">Estado Gestión</span>
+            <span class="stat__value">{{ customer.estadoGestion }}</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal__divider"></div>
+
+      <!-- Portafolio actual -->
+      <section class="modal__section">
+        <h3 class="section-title">Portafolio Actual</h3>
+        <div class="products-list">
+          @for (p of customer.productosDetalle; track p.id) {
+            <div class="product-row">
+              <span [class]="tipoProductoClass(p.tipo)">{{ p.tipo }}</span>
+              <span class="product-row__name">{{ p.nombre }}</span>
+              <span class="product-row__saldo">${{ p.saldo | number:'1.0-0' }}</span>
+            </div>
+          }
+        </div>
+      </section>
+
+      <div class="modal__divider"></div>
+
+      <!-- Análisis IA -->
+      <section class="modal__section">
+        <h3 class="section-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          Análisis IA
+        </h3>
+
+        <!-- Score -->
+        <div class="score-block">
+          <div class="score-block__header">
+            <span class="score-block__label">Score de Contacto</span>
+            <span class="score-block__value">{{ customer.ia.scoreContacto }}/100</span>
+          </div>
+          <div class="score-bar">
+            <div class="score-bar__fill {{ scoreClass(customer.ia.scoreContacto) }}"
+                 [style.width.%]="customer.ia.scoreContacto">
+            </div>
+          </div>
+        </div>
+
+        <!-- Pills row -->
+        <div class="pills-row">
+          <div class="pills-row__item">
+            <span class="pills-row__label">Nivel de alerta</span>
+            <span [class]="alertaClass(customer.ia.nivelAlerta)">{{ alertaLabel(customer.ia.nivelAlerta) }}</span>
+          </div>
+          <div class="pills-row__item">
+            <span class="pills-row__label">Recomendación</span>
+            <span [class]="recomendacionClass(customer.ia.tipoRecomendacion)">{{ recomendacionLabel(customer.ia.tipoRecomendacion) }}</span>
+          </div>
+          <div class="pills-row__item">
+            <span class="pills-row__label">Urgencia</span>
+            <span [class]="urgenciaClass(customer.ia.urgencia)">{{ urgenciaLabel(customer.ia.urgencia) }}</span>
+          </div>
+        </div>
+
+        <!-- Producto sugerido -->
+        <div class="suggestion-box">
+          <span class="suggestion-box__label">Producto sugerido</span>
+          <span class="suggestion-box__product">{{ customer.ia.productoSugerido }}</span>
+          @if (customer.ia.potencialInversion > 0) {
+            <span class="suggestion-box__amount">
+              Potencial: ${{ customer.ia.potencialInversion | number:'1.0-0' }}
+            </span>
+          }
+        </div>
+
+        <!-- Razonamiento -->
+        <div class="reasoning-box">
+          <p class="reasoning-box__text">{{ customer.ia.razonamiento }}</p>
+        </div>
+
+        <!-- Próxima acción -->
+        <div class="next-action">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+          <span>{{ customer.ia.proximaAccion }}</span>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="modal__footer">
+      <button class="btn-secondary" (click)="close.emit()">Cerrar</button>
+      <button class="btn-primary">Iniciar gestión</button>
+    </div>
+
+  </div>
+</div>

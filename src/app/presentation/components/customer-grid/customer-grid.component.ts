@@ -1,9 +1,10 @@
 import {
-  ChangeDetectionStrategy, Component, computed, inject,
-  Input, OnChanges, OnInit, signal, SimpleChanges
+  ChangeDetectionStrategy, Component, computed, effect, inject,
+  Input, OnInit, Output, EventEmitter, signal
 } from '@angular/core'
 import { DatePipe, DecimalPipe } from '@angular/common'
-import { Cliente, PerfilRiesgo } from '../../../core/models/cliente.model'
+import { PerfilRiesgo } from '../../../core/models/cliente.model'
+import { ClienteInsight } from '../../../core/models/cliente-insight.model'
 import { CustomerService } from '../../../core/services/customer.service'
 import { SegmentoClassPipe } from '../../../shared/pipes/segmento-class.pipe'
 
@@ -17,12 +18,24 @@ type Filtro = 'all' | 'alta-prioridad' | 'vencimientos' | 'prospectos'
   styleUrl: './customer-grid.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomerGridComponent implements OnInit, OnChanges {
+export class CustomerGridComponent implements OnInit {
   private customerService = inject(CustomerService)
 
-  @Input() filtro: Filtro = 'all'
+  @Output() rangeChange       = new EventEmitter<string>()
+  @Output() customerSelected  = new EventEmitter<ClienteInsight>()
 
-  private allCustomers = signal<Cliente[]>([])
+  private _filtro = signal<Filtro>('all')
+
+  constructor() {
+    effect(() => this.rangeChange.emit(this.rangeInfo()))
+  }
+
+  @Input() set filtro(value: Filtro) {
+    this._filtro.set(value)
+    this.currentPage.set(1)
+  }
+
+  private allCustomers = signal<ClienteInsight[]>([])
   isLoading = signal(true)
   error     = signal<string | null>(null)
 
@@ -31,7 +44,7 @@ export class CustomerGridComponent implements OnInit, OnChanges {
 
   customers = computed(() => {
     const all = this.allCustomers()
-    switch (this.filtro) {
+    switch (this._filtro()) {
       case 'alta-prioridad': return all.filter(c => c.diasSinContacto >= 30)
       case 'vencimientos':   return all.filter(c => c.estadoGestion === 'Pendiente' && c.diasSinContacto >= 7)
       case 'prospectos':     return all.filter(c => c.segmento === 'VIP' || c.segmento === 'Premium')
@@ -55,9 +68,11 @@ export class CustomerGridComponent implements OnInit, OnChanges {
   })
 
   rangeInfo = computed(() => {
+    const total = this.customers().length
+    if (total === 0) return '0 clientes'
     const start = (this.currentPage() - 1) * this.pageSize + 1
-    const end   = Math.min(this.currentPage() * this.pageSize, this.customers().length)
-    return `${start}–${end} de ${this.customers().length}`
+    const end   = Math.min(this.currentPage() * this.pageSize, total)
+    return `${start}–${end} de ${total}`
   })
 
   async ngOnInit () {
@@ -69,10 +84,6 @@ export class CustomerGridComponent implements OnInit, OnChanges {
     } finally {
       this.isLoading.set(false)
     }
-  }
-
-  ngOnChanges (changes: SimpleChanges) {
-    if (changes['filtro']) this.currentPage.set(1)
   }
 
   prevPage () { if (this.currentPage() > 1) this.currentPage.update(p => p - 1) }

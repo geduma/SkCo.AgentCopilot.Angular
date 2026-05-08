@@ -1,23 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core'
 import { CustomerService } from '../../../core/services/customer.service'
-import { Cliente } from '../../../core/models/cliente.model'
+import { ClienteInsight } from '../../../core/models/cliente-insight.model'
+import { AccionCritica } from '../../../core/models/accion-critica.model'
 import { CustomerGridComponent } from '../customer-grid/customer-grid.component'
-
-interface AccionCritica {
-  tipo: 'critico' | 'urgente' | 'tarea'
-  tipoLabel: string
-  fechaLabel: string
-  titulo: string
-  descripcion: string
-  accion: string
-}
+import { CustomerDetailModalComponent } from '../customer-detail-modal/customer-detail-modal.component'
 
 type Filtro = 'all' | 'alta-prioridad' | 'vencimientos' | 'prospectos'
 
 @Component({
   selector: 'app-customer-page',
   standalone: true,
-  imports: [CustomerGridComponent],
+  imports: [CustomerGridComponent, CustomerDetailModalComponent],
   templateUrl: './customer-page.component.html',
   styleUrl: './customer-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,8 +18,10 @@ type Filtro = 'all' | 'alta-prioridad' | 'vencimientos' | 'prospectos'
 export class CustomerPageComponent implements OnInit {
   private customerService = inject(CustomerService)
 
-  private allCustomers = signal<Cliente[]>([])
-  filtro = signal<Filtro>('all')
+  private allCustomers = signal<ClienteInsight[]>([])
+  filtro           = signal<Filtro>('all')
+  gridRange        = signal('...')
+  selectedCustomer = signal<ClienteInsight | null>(null)
 
   filteredCount = computed(() => {
     const all = this.allCustomers()
@@ -43,51 +38,29 @@ export class CustomerPageComponent implements OnInit {
     const total = this.allCustomers().reduce((s, c) => s + c.saldoTotal, 0)
     return `$${(total / 1_000_000).toFixed(1)}M`
   })
-  alertasGestion        = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
-  potencialCrossSell    = computed(() => this.allCustomers().filter(c => (c.segmento === 'VIP' || c.segmento === 'Premium') && c.productosActivos <= 3).length)
+  alertasGestion     = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
+  potencialCrossSell = computed(() => this.allCustomers().filter(c => (c.segmento === 'VIP' || c.segmento === 'Premium') && c.productosActivos <= 3).length)
 
-  readonly accionesPageSize = 3
-  accionesPage = signal(1)
+  readonly accionesPageSize = 4
+  accionesPage  = signal(1)
+  acciones      = signal<AccionCritica[]>([])
 
-  readonly acciones: AccionCritica[] = [
-    {
-      tipo: 'critico', tipoLabel: 'CRÍTICO', fechaLabel: 'Vence hoy',
-      titulo: 'Renovación vencida – Felipe Castro',
-      descripcion: 'Portafolio VIP sin contacto hace 37 días. AUM: $120M. IA detecta riesgo de fuga.',
-      accion: 'Contactar ahora',
-    },
-    {
-      tipo: 'critico', tipoLabel: 'CRÍTICO', fechaLabel: 'Mañana',
-      titulo: 'Alerta riesgo – Sofía Vargas',
-      descripcion: 'Sin contacto 62 días. Segmento Riesgo. Requiere plan de retención inmediato.',
-      accion: 'Ver perfil',
-    },
-    {
-      tipo: 'urgente', tipoLabel: 'URGENTE', fechaLabel: 'Esta semana',
-      titulo: 'Cross-sell IA – Juan Pérez',
-      descripcion: 'Perfil Moderado con capacidad de inversión. IA sugiere Fondo Skandia Renta Fija.',
-      accion: 'Ver propuesta',
-    },
-    {
-      tipo: 'tarea', tipoLabel: 'TAREA', fechaLabel: 'Viernes',
-      titulo: 'Seguimiento – Luis Martínez',
-      descripcion: 'En plan de recuperación. Programar llamada para revisar avance.',
-      accion: 'Agendar llamada',
-    },
-  ]
-
-  accionesTotalPages = computed(() => Math.ceil(this.acciones.length / this.accionesPageSize))
+  accionesTotalPages = computed(() => Math.ceil(this.acciones().length / this.accionesPageSize))
   accionesPaginated  = computed(() => {
     const start = (this.accionesPage() - 1) * this.accionesPageSize
-    return this.acciones.slice(start, start + this.accionesPageSize)
+    return this.acciones().slice(start, start + this.accionesPageSize)
   })
 
   prevAccionesPage () { if (this.accionesPage() > 1) this.accionesPage.update(p => p - 1) }
   nextAccionesPage () { if (this.accionesPage() < this.accionesTotalPages()) this.accionesPage.update(p => p + 1) }
 
   async ngOnInit () {
-    const data = await this.customerService.getCustomers().catch(() => [] as Cliente[])
-    this.allCustomers.set(data)
+    const [customers, accionesCriticas] = await Promise.all([
+      this.customerService.getCustomers().catch(() => [] as ClienteInsight[]),
+      this.customerService.getAccionesCriticas().catch(() => [] as AccionCritica[]),
+    ])
+    this.allCustomers.set(customers)
+    this.acciones.set(accionesCriticas)
   }
 
   setFiltro (f: Filtro) {

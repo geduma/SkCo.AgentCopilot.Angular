@@ -25,7 +25,7 @@
 
       <!-- Rows -->
       @for (c of paginatedCustomers(); track c.idCliente) {
-        <div class="grid-row grid-row--body">
+        <div class="grid-row grid-row--body" (click)="customerSelected.emit(c)">
 
           <div class="grid-cell">
             <div class="customer-cell">

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "tipo": "critico",
+    "tipoLabel": "CRÍTICO",
+    "fechaLabel": "Vence hoy",
+    "titulo": "Renovación vencida – Felipe Castro",
+    "descripcion": "Portafolio VIP $120M sin contacto 37 días. IA detecta riesgo de migración a competidor.",
+    "accion": "Iniciar gestión",
+    "idCliente": 108321
+  },
+  {
+    "id": 2,
+    "tipo": "critico",
+    "tipoLabel": "CRÍTICO",
+    "fechaLabel": "Mañana",
+    "titulo": "Alerta retención – Sofía Vargas",
+    "descripcion": "62 días sin contacto. Fondo en pérdida del 8%. Riesgo de rescate total inminente.",
+    "accion": "Contactar ahora",
+    "idCliente": 106543
+  },
+  {
+    "id": 3,
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Esta semana",
+    "titulo": "Cross-sell IA – Juan Pérez",
+    "descripcion": "IA sugiere Skandia Portafolio Global. Potencial $25M. Perfil y liquidez confirmados.",
+    "accion": "Preparar propuesta",
+    "idCliente": 102358
+  },
+  {
+    "id": 4,
+    "tipo": "urgente",
+    "tipoLabel": "URGENTE",
+    "fechaLabel": "Esta semana",
+    "titulo": "Rebalanceo portafolio – Diego Herrera",
+    "descripcion": "Portafolio Premium sin exposición global. Ventana de mercado favorable para incorporar componente internacional.",
+    "accion": "Ver portafolio",
+    "idCliente": 107654
+  },
+  {
+    "id": 5,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Jueves",
+    "titulo": "Propuesta pensión – Natalia Ruiz",
+    "descripcion": "Simular ahorro pensional y beneficio tributario del 30%. Potencial $10M en aportes anuales.",
+    "accion": "Simular ahorro",
+    "idCliente": 104789
+  },
+  {
+    "id": 6,
+    "tipo": "tarea",
+    "tipoLabel": "TAREA",
+    "fechaLabel": "Viernes",
+    "titulo": "Seguimiento recuperación – Luis Martínez",
+    "descripcion": "Revisar avance del plan de retención. Presentar Capital Garantizado como alternativa estabilizadora.",
+    "accion": "Ver historial",
+    "idCliente": 101254
+  }
+]
