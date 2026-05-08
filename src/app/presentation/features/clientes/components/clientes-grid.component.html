@@ -1,0 +1,97 @@
+<div class="grid-wrapper">
+  <table class="sk-table">
+    <thead>
+      <tr>
+        <th class="sortable" (click)="toggleSort('idCliente')">
+          ID
+          <span class="sort-ind" *ngIf="sortKey() === 'idCliente'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('cliente')">
+          Cliente
+          <span class="sort-ind" *ngIf="sortKey() === 'cliente'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('segmento')">
+          Segmento
+          <span class="sort-ind" *ngIf="sortKey() === 'segmento'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('perfilRiesgo')">
+          Perfil de riesgo
+          <span class="sort-ind" *ngIf="sortKey() === 'perfilRiesgo'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable text-right" (click)="toggleSort('saldoTotal')">
+          Saldo total
+          <span class="sort-ind" *ngIf="sortKey() === 'saldoTotal'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable text-center" (click)="toggleSort('productosActivos')">
+          Productos
+          <span class="sort-ind" *ngIf="sortKey() === 'productosActivos'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('ultimoContacto')">
+          Último contacto
+          <span class="sort-ind" *ngIf="sortKey() === 'ultimoContacto'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable text-center" (click)="toggleSort('diasSinContacto')">
+          Días sin contacto
+          <span class="sort-ind" *ngIf="sortKey() === 'diasSinContacto'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('asesorAsignado')">
+          Asesor
+          <span class="sort-ind" *ngIf="sortKey() === 'asesorAsignado'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+        <th class="sortable" (click)="toggleSort('estadoGestion')">
+          Estado
+          <span class="sort-ind" *ngIf="sortKey() === 'estadoGestion'">
+            {{ sortDir() === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let row of rows(); trackBy: trackById"
+        (click)="onSelect(row)"
+        class="row"
+      >
+        <td class="muted">{{ row.idCliente }}</td>
+        <td class="strong">{{ row.cliente }}</td>
+        <td><span [class]="row.segmento | segmentoClass">{{ row.segmento }}</span></td>
+        <td>{{ row.perfilRiesgo }}</td>
+        <td class="text-right strong">{{ row.saldoTotal | currency: 'COP':'symbol-narrow':'1.0-0' }}</td>
+        <td class="text-center">{{ row.productosActivos }}</td>
+        <td>{{ row.ultimoContacto | date: 'dd MMM yyyy' }}</td>
+        <td class="text-center">
+          <span
+            class="dias-pill"
+            [class.dias-pill--warn]="row.diasSinContacto >= 30 && row.diasSinContacto < 45"
+            [class.dias-pill--danger]="row.diasSinContacto >= 45"
+          >
+            {{ row.diasSinContacto }}
+          </span>
+        </td>
+        <td>{{ row.asesorAsignado }}</td>
+        <td><span [class]="row.estadoGestion | estadoClass">{{ row.estadoGestion }}</span></td>
+      </tr>
+      <tr *ngIf="rows().length === 0">
+        <td colspan="10" class="empty">No hay clientes para mostrar.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

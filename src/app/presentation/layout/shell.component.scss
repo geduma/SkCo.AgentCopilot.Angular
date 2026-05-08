@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+
+  &__sidebar {
+    background: linear-gradient(180deg, #003d20 0%, #00652f 100%);
+    color: #fff;
+    padding: 22px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--sk-bg);
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+
+  &__mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.16);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    strong {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    small {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 500;
+    font-size: 13.5px;
+    transition: background 0.15s ease;
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      text-decoration: none;
+    }
+    &--active {
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+    }
+  }
+}
+
+.topbar {
+  background: var(--sk-surface);
+  border-bottom: 1px solid var(--sk-border);
+  padding: 14px clamp(16px, 4vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-weight: 600;
+    color: var(--sk-text);
+    font-size: 14px;
+  }
+
+  &__user {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--sk-text-muted);
+    .sk-icon {
+      color: var(--sk-primary);
+    }
+  }
+}

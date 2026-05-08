@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/nvm/v12.14.0/**)",
+      "Bash(nvm list *)",
+      "Read(//c/Users/jmojica/AppData/Roaming/**)",
+      "Bash(cmd //c \"nvm use 22.17.1 && node --version && npm --version\")",
+      "Bash(cat \"/c/Program Files/nvm/settings.txt\" 2>&1)",
+      "Read(//c/Program Files/nvm/**)",
+      "Bash(\"/c/Program Files/nvm/nvm.exe\" version)",
+      "Bash(\"/c/Program Files/nvm/nvm.exe\" list)",
+      "Bash(\"/c/Program Files/nvm/nvm.exe\" use 22.17.1)",
+      "PowerShell($isAdmin = \\([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent\\(\\)\\).IsInRole\\([Security.Principal.WindowsBuiltinRole]::Administrator\\); \"IsAdmin: $isAdmin\"; \\(Get-Item \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue\\).LinkType; \\(Get-Item \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue\\).Target)",
+      "PowerShell($cmd = 'cd /d \"C:\\\\Program Files\\\\nvm\" && nvm use 22.17.1 && pause'; Start-Process -FilePath cmd.exe -ArgumentList \"/c $cmd\" -Verb RunAs -Wait; \"Launched elevated nvm use, waiting for UAC...\")",
+      "PowerShell(\\(Get-Item \"C:\\\\Program Files\\\\nodejs\"\\).Target; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" --version)",
+      "Bash(npm --version)",
+      "Bash(npm run *)"
+    ]
+  }
+}

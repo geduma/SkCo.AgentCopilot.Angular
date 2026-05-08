@@ -1,0 +1,41 @@
+/* Estilos globales — los assets de Skandia se cargan vía <link> en index.html */
+
+:root {
+  --sk-bg: #f5f6fa;
+  --sk-surface: #ffffff;
+  --sk-border: #e1e5ee;
+  --sk-text: #1f2a44;
+  --sk-text-muted: #5a6478;
+  --sk-primary: #00833e;
+  --sk-primary-dark: #00652f;
+  --sk-warn: #d97706;
+  --sk-danger: #c0392b;
+  --sk-info: #2563eb;
+  --sk-success: #16a34a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--sk-bg);
+  color: var(--sk-text);
+  font-family:
+    'SkandiaSansLatinWeb', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto,
+    'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--sk-primary);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
