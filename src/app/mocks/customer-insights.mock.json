@@ -17,14 +17,18 @@
       { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 15000000 }
     ],
     "ia": {
-      "scoreContacto": 72,
-      "nivelAlerta": "medio",
-      "tipoRecomendacion": "cross-sell",
-      "productoSugerido": "Skandia Portafolio Global",
-      "razonamiento": "Portafolio concentrado en renta fija local. Capacidad de inversión adicional y perfil apto para diversificación internacional.",
-      "potencialInversion": 25000000,
-      "proximaAccion": "Presentar propuesta de Skandia Portafolio Global con análisis comparativo",
-      "urgencia": "esta-semana"
+      "scoreComercial": 72,
+      "probabilidadInversion": 75,
+      "compatibilidadProducto": 88,
+      "riesgoFuga": "Medio",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Esta semana",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Portafolio concentrado en renta fija local con capacidad de inversión adicional y perfil apto para diversificación internacional.",
+      "accionSugerida": "Presentar propuesta de Skandia Portafolio Global con análisis comparativo.",
+      "resumenCliente": "Cliente VIP con portafolio moderado y alta liquidez disponible para diversificación global.",
+      "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
     }
   },
   {
@@ -44,14 +48,18 @@
       { "id": "SKA-EDU-001", "nombre": "Plan Educativo Skandia", "tipo": "Plan", "saldo": 18500000 }
     ],
     "ia": {
-      "scoreContacto": 65,
-      "nivelAlerta": "medio",
-      "tipoRecomendacion": "cross-sell",
-      "productoSugerido": "Pensión Voluntaria Skandia",
-      "razonamiento": "Cliente Premium sin vehículo de ahorro pensional. Edad y perfil idóneos para iniciar contribuciones voluntarias con beneficio tributario.",
-      "potencialInversion": 15000000,
-      "proximaAccion": "Agendar reunión para explicar beneficios tributarios de la pensión voluntaria",
-      "urgencia": "esta-semana"
+      "scoreComercial": 65,
+      "probabilidadInversion": 68,
+      "compatibilidadProducto": 82,
+      "riesgoFuga": "Medio",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Esta semana",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Cliente Premium sin vehículo de ahorro pensional. Edad y perfil idóneos para iniciar contribuciones voluntarias con beneficio tributario.",
+      "accionSugerida": "Agendar reunión para explicar beneficios tributarios de la pensión voluntaria.",
+      "resumenCliente": "Cliente Premium con portafolio sólido y oportunidad clara de cross-sell en pensión.",
+      "productoRecomendado": { "productoId": "SKA-PEN-001", "nombreProducto": "Pensión Voluntaria Skandia" }
     }
   },
   {
@@ -70,14 +78,18 @@
       { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 18000000 }
     ],
     "ia": {
-      "scoreContacto": 91,
-      "nivelAlerta": "alto",
-      "tipoRecomendacion": "retencion",
-      "productoSugerido": "Skandia Capital Garantizado",
-      "razonamiento": "47 días sin contacto en segmento Recuperación. Alto riesgo de cancelación. Producto de capital garantizado puede estabilizar relación y generar confianza.",
-      "potencialInversion": 5000000,
-      "proximaAccion": "Llamada urgente de retención y presentación de plan de recuperación personalizado",
-      "urgencia": "manana"
+      "scoreComercial": 91,
+      "probabilidadInversion": 38,
+      "compatibilidadProducto": 70,
+      "riesgoFuga": "Alto",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Inmediata",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": false,
+      "motivoIA": "47 días sin contacto en segmento Recuperación. Alto riesgo de cancelación. Producto de capital garantizado puede estabilizar la relación.",
+      "accionSugerida": "Llamada urgente de retención y presentación de plan de recuperación personalizado.",
+      "resumenCliente": "Cliente en recuperación con riesgo de fuga crítico por inactividad prolongada.",
+      "productoRecomendado": { "productoId": "SKA-CG-001", "nombreProducto": "Skandia Capital Garantizado" }
     }
   },
   {
@@ -97,14 +109,18 @@
       { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 17000000 }
     ],
     "ia": {
-      "scoreContacto": 50,
-      "nivelAlerta": "bajo",
-      "tipoRecomendacion": "rebalanceo",
-      "productoSugerido": "Skandia Portafolio Global",
-      "razonamiento": "Portafolio bien distribuido pero sin exposición internacional. Coyuntura favorable para incorporar diversificación global en porcentaje moderado.",
-      "potencialInversion": 12000000,
-      "proximaAccion": "Enviar informe de mercados globales y propuesta de rebalanceo",
-      "urgencia": "este-mes"
+      "scoreComercial": 50,
+      "probabilidadInversion": 60,
+      "compatibilidadProducto": 85,
+      "riesgoFuga": "Bajo",
+      "prioridad": "Media",
+      "nivelUrgencia": "Esta semana",
+      "canalSugerido": "Correo",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Portafolio bien distribuido sin exposición internacional. Coyuntura favorable para incorporar diversificación global.",
+      "accionSugerida": "Enviar informe de mercados globales y propuesta de rebalanceo.",
+      "resumenCliente": "Cliente en segmento oportunidad con portafolio local y apertura a diversificación.",
+      "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
     }
   },
   {
@@ -123,14 +139,18 @@
       { "id": "SKA-PEN-001", "nombre": "Pensión Voluntaria Skandia", "tipo": "Pensión", "saldo": 12500000 }
     ],
     "ia": {
-      "scoreContacto": 30,
-      "nivelAlerta": "bajo",
-      "tipoRecomendacion": "cross-sell",
-      "productoSugerido": "Plan Educativo Skandia",
-      "razonamiento": "Cliente estable con historial de pago consistente. Perfil familiar sugiere necesidad de ahorro educativo a mediano plazo.",
-      "potencialInversion": 3000000,
-      "proximaAccion": "Compartir brochure de Plan Educativo y programar llamada informativa",
-      "urgencia": "este-mes"
+      "scoreComercial": 30,
+      "probabilidadInversion": 35,
+      "compatibilidadProducto": 75,
+      "riesgoFuga": "Bajo",
+      "prioridad": "Baja",
+      "nivelUrgencia": "Seguimiento",
+      "canalSugerido": "Correo",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Cliente estable con historial de pago consistente. Perfil familiar sugiere necesidad de ahorro educativo a mediano plazo.",
+      "accionSugerida": "Compartir brochure de Plan Educativo y programar llamada informativa.",
+      "resumenCliente": "Cliente estable y fiel, bajo riesgo, con oportunidad de ampliar portafolio educativo.",
+      "productoRecomendado": { "productoId": "SKA-EDU-001", "nombreProducto": "Plan Educativo Skandia" }
     }
   },
   {
@@ -149,14 +169,18 @@
       { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 9800000 }
     ],
     "ia": {
-      "scoreContacto": 97,
-      "nivelAlerta": "critico",
-      "tipoRecomendacion": "retencion",
-      "productoSugerido": "Skandia Capital Garantizado",
-      "razonamiento": "62 días sin contacto. Único producto con pérdida acumulada del 8%. Riesgo de rescate total inminente. Intervención crítica requerida.",
-      "potencialInversion": 0,
-      "proximaAccion": "Contacto inmediato para presentar opciones de migración a producto de menor riesgo",
-      "urgencia": "hoy"
+      "scoreComercial": 97,
+      "probabilidadInversion": 18,
+      "compatibilidadProducto": 62,
+      "riesgoFuga": "Alto",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Inmediata",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": false,
+      "motivoIA": "62 días sin contacto. Único producto con pérdida acumulada del 8%. Riesgo de rescate total inminente. Intervención crítica requerida.",
+      "accionSugerida": "Contacto inmediato para presentar opciones de migración a producto de menor riesgo.",
+      "resumenCliente": "Cliente en segmento riesgo con máxima urgencia de intervención.",
+      "productoRecomendado": { "productoId": "SKA-CG-001", "nombreProducto": "Skandia Capital Garantizado" }
     }
   },
   {
@@ -178,14 +202,18 @@
       { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 11200000 }
     ],
     "ia": {
-      "scoreContacto": 60,
-      "nivelAlerta": "medio",
-      "tipoRecomendacion": "cross-sell",
-      "productoSugerido": "Skandia Portafolio Global",
-      "razonamiento": "Cliente Premium con portafolio diversificado pero sin exposición internacional. Capacidad financiera y perfil idóneos para incorporar componente global.",
-      "potencialInversion": 20000000,
-      "proximaAccion": "Reunión de revisión de portafolio y presentación de Skandia Portafolio Global",
-      "urgencia": "esta-semana"
+      "scoreComercial": 60,
+      "probabilidadInversion": 72,
+      "compatibilidadProducto": 91,
+      "riesgoFuga": "Bajo",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Esta semana",
+      "canalSugerido": "Reunión",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Cliente Premium con portafolio diversificado pero sin exposición internacional. Capacidad financiera y perfil idóneos para componente global.",
+      "accionSugerida": "Reunión de revisión de portafolio y presentación de Skandia Portafolio Global.",
+      "resumenCliente": "Cliente Premium con portafolio completo y alto potencial para expansión internacional.",
+      "productoRecomendado": { "productoId": "SKA-PG-001", "nombreProducto": "Skandia Portafolio Global" }
     }
   },
   {
@@ -204,14 +232,18 @@
       { "id": "SKA-SEG-001", "nombre": "Seguro de Vida Flexible", "tipo": "Seguro", "saldo": 5500000 }
     ],
     "ia": {
-      "scoreContacto": 25,
-      "nivelAlerta": "bajo",
-      "tipoRecomendacion": "seguimiento",
-      "productoSugerido": "Fondo Skandia Renta Fija",
-      "razonamiento": "Cliente nuevo en proceso de onboarding. Primera inversión en seguro. Momento ideal para introducir fondos de bajo riesgo como complemento al seguro.",
-      "potencialInversion": 3000000,
-      "proximaAccion": "Llamada de seguimiento de onboarding y presentación de fondos conservadores",
-      "urgencia": "este-mes"
+      "scoreComercial": 25,
+      "probabilidadInversion": 45,
+      "compatibilidadProducto": 80,
+      "riesgoFuga": "Bajo",
+      "prioridad": "Media",
+      "nivelUrgencia": "Seguimiento",
+      "canalSugerido": "WhatsApp",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Cliente nuevo en onboarding. Primera inversión en seguro. Momento ideal para introducir fondos de bajo riesgo como complemento.",
+      "accionSugerida": "Llamada de seguimiento de onboarding y presentación de fondos conservadores.",
+      "resumenCliente": "Cliente nuevo con potencial de crecer en portafolio conservador durante el onboarding.",
+      "productoRecomendado": { "productoId": "SKA-RF-001", "nombreProducto": "Fondo Skandia Renta Fija" }
     }
   },
   {
@@ -234,14 +266,18 @@
       { "id": "SKA-SEGP-001", "nombre": "Seguro de Vida Premium", "tipo": "Seguro", "saldo": 5000000 }
     ],
     "ia": {
-      "scoreContacto": 94,
-      "nivelAlerta": "critico",
-      "tipoRecomendacion": "renovacion",
-      "productoSugerido": "Skandia Renta Variable USA – Clase Institucional",
-      "razonamiento": "Mayor AUM del portafolio. 37 días sin contacto en segmento VIP con posición concentrada en USA. Ventana de renovación vencida. Riesgo de migración a competidor.",
-      "potencialInversion": 30000000,
-      "proximaAccion": "Contacto urgente para renovación y propuesta de upgrade a clase institucional con mejor comisión",
-      "urgencia": "hoy"
+      "scoreComercial": 94,
+      "probabilidadInversion": 85,
+      "compatibilidadProducto": 95,
+      "riesgoFuga": "Alto",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Inmediata",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Mayor AUM del portafolio. 37 días sin contacto en segmento VIP con posición concentrada en USA. Ventana de renovación vencida.",
+      "accionSugerida": "Contacto urgente para renovación y propuesta de upgrade a clase institucional con mejor comisión.",
+      "resumenCliente": "Cliente VIP de mayor valor, con riesgo de fuga crítico por inactividad y renovación vencida.",
+      "productoRecomendado": { "productoId": "SKA-RVU-001", "nombreProducto": "Skandia Renta Variable USA" }
     }
   },
   {
@@ -261,14 +297,18 @@
       { "id": "SKA-AC-001", "nombre": "Skandia Acciones Colombia", "tipo": "Fondo", "saldo": 18900000 }
     ],
     "ia": {
-      "scoreContacto": 68,
-      "nivelAlerta": "medio",
-      "tipoRecomendacion": "cross-sell",
-      "productoSugerido": "Pensión Voluntaria Skandia",
-      "razonamiento": "Cliente con potencial de ahorro no canalizado. Sin producto pensional activo. Beneficio tributario del 30% sobre aportes es argumento de cierre efectivo.",
-      "potencialInversion": 10000000,
-      "proximaAccion": "Llamada para presentar simulación de ahorro pensional y ahorro en impuestos",
-      "urgencia": "esta-semana"
+      "scoreComercial": 68,
+      "probabilidadInversion": 70,
+      "compatibilidadProducto": 83,
+      "riesgoFuga": "Medio",
+      "prioridad": "Alta",
+      "nivelUrgencia": "Esta semana",
+      "canalSugerido": "Llamada",
+      "oportunidadCrossSelling": true,
+      "motivoIA": "Cliente con potencial de ahorro no canalizado. Sin producto pensional activo. Beneficio tributario del 30% es argumento de cierre efectivo.",
+      "accionSugerida": "Llamada para presentar simulación de ahorro pensional y ahorro en impuestos.",
+      "resumenCliente": "Cliente en oportunidad con alta probabilidad de cierre para pensión voluntaria.",
+      "productoRecomendado": { "productoId": "SKA-PEN-001", "nombreProducto": "Pensión Voluntaria Skandia" }
     }
   }
 ]

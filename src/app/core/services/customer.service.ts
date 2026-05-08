@@ -25,6 +25,11 @@ export class CustomerService {
     return this.accionesCache
   }
 
+  clearCache (): void {
+    this.insightsCache = null
+    this.accionesCache = null
+  }
+
   async getCustomerById (id: number): Promise<ClienteInsight | undefined> {
     const customers = await this.getCustomers()
     return customers.find(c => c.idCliente === id)

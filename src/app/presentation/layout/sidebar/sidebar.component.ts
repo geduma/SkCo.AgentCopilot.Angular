@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
+import { AiGenerationService } from '../../../core/services/ai-generation.service'
 
 @Component({
   selector: 'app-sidebar',
@@ -9,4 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  protected ai = inject(AiGenerationService)
+}

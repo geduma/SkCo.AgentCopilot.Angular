@@ -93,7 +93,7 @@
       <app-customer-grid
         [filtro]="filtro()"
         (rangeChange)="gridRange.set($event)"
-        (customerSelected)="selectedCustomer.set($event)" />
+        (customerSelected)="openModal($event)" />
     </section>
 
     <!-- Right: Acciones Críticas -->
@@ -128,9 +128,3 @@
 
   </div>
 </div>
-
-@if (selectedCustomer()) {
-  <app-customer-detail-modal
-    [customer]="selectedCustomer()!"
-    (close)="selectedCustomer.set(null)" />
-}

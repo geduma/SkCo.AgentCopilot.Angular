@@ -1,5 +1,4 @@
-<div class="overlay" (click)="close.emit()">
-  <div class="modal" (click)="$event.stopPropagation()">
+<div class="modal" (click)="$event.stopPropagation()">
 
     <!-- Header -->
     <div class="modal__header">
@@ -35,8 +34,9 @@
           </div>
           <div class="stat">
             <span class="stat__label">Días sin Contacto</span>
-            <span class="stat__value" [class.stat__value--warn]="customer.diasSinContacto >= 15"
-                                      [class.stat__value--danger]="customer.diasSinContacto >= 30">
+            <span class="stat__value"
+                  [class.stat__value--warn]="customer.diasSinContacto >= 15"
+                  [class.stat__value--danger]="customer.diasSinContacto >= 30">
               {{ customer.diasSinContacto }} días
             </span>
           </div>
@@ -70,55 +70,74 @@
         <h3 class="section-title">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
-            <path d="M12 6v6l4 2"/>
+            <path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
           </svg>
           Análisis IA
         </h3>
 
-        <!-- Score -->
+        <!-- Score comercial -->
         <div class="score-block">
           <div class="score-block__header">
-            <span class="score-block__label">Score de Contacto</span>
-            <span class="score-block__value">{{ customer.ia.scoreContacto }}/100</span>
+            <span class="score-block__label">Score Comercial</span>
+            <span class="score-block__value">{{ customer.ia.scoreComercial }}/100</span>
           </div>
           <div class="score-bar">
-            <div class="score-bar__fill {{ scoreClass(customer.ia.scoreContacto) }}"
-                 [style.width.%]="customer.ia.scoreContacto">
+            <div class="score-bar__fill {{ scoreClass(customer.ia.scoreComercial) }}"
+                 [style.width.%]="customer.ia.scoreComercial">
             </div>
+          </div>
+        </div>
+
+        <!-- Métricas IA -->
+        <div class="ia-metrics">
+          <div class="ia-metric">
+            <span class="ia-metric__label">Prob. Inversión</span>
+            <span class="ia-metric__value">{{ customer.ia.probabilidadInversion }}%</span>
+          </div>
+          <div class="ia-metric">
+            <span class="ia-metric__label">Compat. Producto</span>
+            <span class="ia-metric__value">{{ customer.ia.compatibilidadProducto }}%</span>
+          </div>
+          <div class="ia-metric">
+            <span class="ia-metric__label">Cross-sell</span>
+            <span class="ia-metric__value">{{ customer.ia.oportunidadCrossSelling ? 'Sí' : 'No' }}</span>
           </div>
         </div>
 
         <!-- Pills row -->
         <div class="pills-row">
           <div class="pills-row__item">
-            <span class="pills-row__label">Nivel de alerta</span>
-            <span [class]="alertaClass(customer.ia.nivelAlerta)">{{ alertaLabel(customer.ia.nivelAlerta) }}</span>
+            <span class="pills-row__label">Riesgo Fuga</span>
+            <span [class]="riesgoClass(customer.ia.riesgoFuga)">{{ customer.ia.riesgoFuga }}</span>
           </div>
           <div class="pills-row__item">
-            <span class="pills-row__label">Recomendación</span>
-            <span [class]="recomendacionClass(customer.ia.tipoRecomendacion)">{{ recomendacionLabel(customer.ia.tipoRecomendacion) }}</span>
+            <span class="pills-row__label">Prioridad</span>
+            <span [class]="prioridadClass(customer.ia.prioridad)">{{ customer.ia.prioridad }}</span>
           </div>
           <div class="pills-row__item">
             <span class="pills-row__label">Urgencia</span>
-            <span [class]="urgenciaClass(customer.ia.urgencia)">{{ urgenciaLabel(customer.ia.urgencia) }}</span>
+            <span [class]="urgenciaClass(customer.ia.nivelUrgencia)">{{ customer.ia.nivelUrgencia }}</span>
+          </div>
+          <div class="pills-row__item">
+            <span class="pills-row__label">Canal</span>
+            <span [class]="canalClass(customer.ia.canalSugerido)">{{ customer.ia.canalSugerido }}</span>
           </div>
         </div>
 
         <!-- Producto sugerido -->
         <div class="suggestion-box">
           <span class="suggestion-box__label">Producto sugerido</span>
-          <span class="suggestion-box__product">{{ customer.ia.productoSugerido }}</span>
-          @if (customer.ia.potencialInversion > 0) {
-            <span class="suggestion-box__amount">
-              Potencial: ${{ customer.ia.potencialInversion | number:'1.0-0' }}
-            </span>
-          }
+          <span class="suggestion-box__product">{{ customer.ia.productoRecomendado.nombreProducto }}</span>
         </div>
 
-        <!-- Razonamiento -->
+        <!-- Motivo IA -->
         <div class="reasoning-box">
-          <p class="reasoning-box__text">{{ customer.ia.razonamiento }}</p>
+          <p class="reasoning-box__text">{{ customer.ia.motivoIA }}</p>
+        </div>
+
+        <!-- Resumen cliente -->
+        <div class="summary-box">
+          <p class="summary-box__text">{{ customer.ia.resumenCliente }}</p>
         </div>
 
         <!-- Próxima acción -->
@@ -127,7 +146,7 @@
                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"/>
           </svg>
-          <span>{{ customer.ia.proximaAccion }}</span>
+          <span>{{ customer.ia.accionSugerida }}</span>
         </div>
       </section>
 
@@ -140,4 +159,3 @@
     </div>
 
   </div>
-</div>

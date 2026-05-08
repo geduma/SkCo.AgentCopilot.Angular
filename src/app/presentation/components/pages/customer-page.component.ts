@@ -1,27 +1,27 @@
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core'
 import { CustomerService } from '../../../core/services/customer.service'
+import { CustomerModalService } from '../../../core/services/customer-modal.service'
 import { ClienteInsight } from '../../../core/models/cliente-insight.model'
 import { AccionCritica } from '../../../core/models/accion-critica.model'
 import { CustomerGridComponent } from '../customer-grid/customer-grid.component'
-import { CustomerDetailModalComponent } from '../customer-detail-modal/customer-detail-modal.component'
 
 type Filtro = 'all' | 'alta-prioridad' | 'vencimientos' | 'prospectos'
 
 @Component({
   selector: 'app-customer-page',
   standalone: true,
-  imports: [CustomerGridComponent, CustomerDetailModalComponent],
+  imports: [CustomerGridComponent],
   templateUrl: './customer-page.component.html',
   styleUrl: './customer-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomerPageComponent implements OnInit {
   private customerService = inject(CustomerService)
+  private modalService    = inject(CustomerModalService)
 
   private allCustomers = signal<ClienteInsight[]>([])
-  filtro           = signal<Filtro>('all')
-  gridRange        = signal('...')
-  selectedCustomer = signal<ClienteInsight | null>(null)
+  filtro    = signal<Filtro>('all')
+  gridRange = signal('...')
 
   filteredCount = computed(() => {
     const all = this.allCustomers()
@@ -39,7 +39,7 @@ export class CustomerPageComponent implements OnInit {
     return `$${(total / 1_000_000).toFixed(1)}M`
   })
   alertasGestion     = computed(() => this.allCustomers().filter(c => c.diasSinContacto >= 7 && c.estadoGestion === 'Pendiente').length)
-  potencialCrossSell = computed(() => this.allCustomers().filter(c => (c.segmento === 'VIP' || c.segmento === 'Premium') && c.productosActivos <= 3).length)
+  potencialCrossSell = computed(() => this.allCustomers().filter(c => c.ia.oportunidadCrossSelling).length)
 
   readonly accionesPageSize = 4
   accionesPage  = signal(1)
@@ -61,6 +61,10 @@ export class CustomerPageComponent implements OnInit {
     ])
     this.allCustomers.set(customers)
     this.acciones.set(accionesCriticas)
+  }
+
+  openModal (customer: ClienteInsight): void {
+    this.modalService.open(customer)
   }
 
   setFiltro (f: Filtro) {
