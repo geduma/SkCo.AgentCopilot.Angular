@@ -12,7 +12,7 @@ export class AiGenerationService {
   readonly lastGenerated = signal<AccionCritica[] | null>(null)
 
   private readonly OLLAMA_API_URL = 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent('https://api.ollama.com/v1/generate')
-  private readonly ollamaApiKey = '083373c776a148ea8767c7d570d60a97.85dGMVkv3RJTLKOA7TSLE-Eh'
+  private readonly ollamaApiKey = '123'
   private readonly ollamaModel = 'minimax-m2.5:cloud'
 
   constructor(private customerService: CustomerService) {}
